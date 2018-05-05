@@ -451,6 +451,12 @@ namespace POSMainForm
 
             //graphic.DrawString(StoreName, new Font("Canterbury", 30, FontStyle.Bold), new SolidBrush(Color.Black), new PageSettings().Margins.Left + (int)FontHeight + 20, starty, sf);
             //offset = offset + (int)FontHeight;
+
+            //
+            Image img = System.Drawing.Image.FromFile("E:\\GitHub-Clone\\radium_1\\POSMainForm\\Resources\\logo.jpg");
+            Point loc = new Point(100, 100);
+            e.Graphics.DrawImage(img, loc);
+
             graphic.DrawString(StoreAddress, new Font("Century Gothic", 8, FontStyle.Regular), new SolidBrush(Color.Black), new PageSettings().Margins.Left + (int)FontHeight + 35, starty + 10, sf);
             offset = offset + (int)FontHeight;
             graphic.DrawString("Scheme 33 Karachi Sindh.", new Font("Century Gothic", 8, FontStyle.Regular), new SolidBrush(Color.Black), new PageSettings().Margins.Left + (int)FontHeight + 50, starty + 30, sf);

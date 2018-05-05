@@ -1,0 +1,144 @@
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\bin\Debug\POSMainForm.exe
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\bin\Debug\MySql.Data.dll
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\bin\Debug\POSMainForm.exe.config
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\bin\Debug\DevComponents.DotNetBar2.dll
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.csproj.ResolveComReference.cache
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmAddEditCategory.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmAddEditProduct.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmDatabaseConfig.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmEnterPassword.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmItemFilter.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmLogin.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmPOS1.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportFilterDailySales.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmListCategory.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmListProduct.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmListProductStocksIn.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmListStaff.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmAddEditStaff.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmMain.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmPayment.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportDailSalesByInvoice.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportFilterStocks.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportStocksIn.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportStocksOut.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmSale.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmSelectCategory.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmSystemSetting.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.FrmViewSales.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.Properties.Resources.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.RptDailyInv.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.RptSaleInv.resources
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.csproj.GenerateResource.Cache
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\RdlCompile.cache
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\RdlCompile.compiled
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.exe
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.pdb
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\bin\Debug\POSMainForm.pdb
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.csprojResolveAssemblyReference.cache
+C:\Users\MrMoh\Downloads\SindhSweets\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmSaleReturn.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.csprojResolveAssemblyReference.cache
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.csproj.ResolveComReference.cache
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmAddEditCategory.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmAddEditProduct.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmDatabaseConfig.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmEnterPassword.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmItemFilter.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmLogin.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmPOS1.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportDailySalesByStaff.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportFilterDailySales.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmListCategory.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmListProduct.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmListProductStocksIn.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmListStaff.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmAddEditStaff.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmMain.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmPayment.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportDailSalesByInvoice.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportFilterStocks.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportStocksIn.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmReportStocksOut.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmSale.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmSaleReturn.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmSelectCategory.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.frmSystemSetting.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.FrmViewSales.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.Properties.Resources.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.RptDailyInv.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.RptSaleInv.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.TestWinForm.resources
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.csproj.GenerateResource.Cache
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.csproj.CoreCompileInputs.cache
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\SqlServerTypes\x64\msvcr120.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\SqlServerTypes\x86\msvcr120.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\POSMainForm.exe.config
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\POSMainForm.exe.manifest
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\POSMainForm.application
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\POSMainForm.exe
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\POSMainForm.pdb
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ExcelDataReader.DataSet.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ExcelDataReader.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.ReportViewer.Common.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.ReportViewer.DataVisualization.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.ReportViewer.Design.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.SqlServer.Types.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\EnvDTE.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\stdole.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\Microsoft.MSXML.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ExcelDataReader.xml
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ExcelDataReader.DataSet.xml
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\it\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ja\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ko\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\pt\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ja\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ko\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\pt\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ru\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\zh-CHS\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\zh-CHT\Microsoft.ReportViewer.DataVisualization.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\de\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\es\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\fr\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\it\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ja\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ko\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\pt\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ru\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\zh-CHS\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\zh-CHT\Microsoft.ReportViewer.Design.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\de\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.exe.manifest
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.application
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.exe
+E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.pdb

@@ -442,7 +442,7 @@ namespace POSMainForm
 
 
             int startx = 10;
-            int starty = 10;
+            int starty = 50;
             int offset = 25;
             StringFormat sf = new StringFormat();
             sf.Alignment = StringAlignment.Center;
@@ -453,8 +453,8 @@ namespace POSMainForm
             //offset = offset + (int)FontHeight;
 
             //
-            Image img = System.Drawing.Image.FromFile("E:\\GitHub-Clone\\radium_1\\POSMainForm\\Resources\\logo.jpg");
-            Point loc = new Point(100, 100);
+            Image img = System.Drawing.Image.FromFile("E:\\GitHub-Clone\\radium_1\\POSMainForm\\Resources\\logo_2_1.jpg");
+            Point loc = new Point(110,5);
             e.Graphics.DrawImage(img, loc);
 
             graphic.DrawString(StoreAddress, new Font("Century Gothic", 8, FontStyle.Regular), new SolidBrush(Color.Black), new PageSettings().Margins.Left + (int)FontHeight + 35, starty + 10, sf);

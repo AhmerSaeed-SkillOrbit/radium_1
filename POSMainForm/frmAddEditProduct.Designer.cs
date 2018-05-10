@@ -47,7 +47,6 @@
             this.Label5 = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
-            this.txtProductCode = new System.Windows.Forms.TextBox();
             this.Label3 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -56,6 +55,10 @@
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtProductCode = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.GroupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -64,6 +67,8 @@
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.comboBox1);
+            this.GroupBox1.Controls.Add(this.label10);
             this.GroupBox1.Controls.Add(this.button2);
             this.GroupBox1.Controls.Add(this.txtCostPrice);
             this.GroupBox1.Controls.Add(this.label1);
@@ -81,6 +86,7 @@
             this.GroupBox1.Controls.Add(this.Label5);
             this.GroupBox1.Controls.Add(this.txtBarcode);
             this.GroupBox1.Controls.Add(this.Label4);
+            this.GroupBox1.Controls.Add(this.label11);
             this.GroupBox1.Controls.Add(this.txtProductCode);
             this.GroupBox1.Controls.Add(this.Label3);
             this.GroupBox1.Controls.Add(this.Label6);
@@ -99,7 +105,7 @@
             this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Location = new System.Drawing.Point(297, 125);
+            this.button2.Location = new System.Drawing.Point(297, 106);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(26, 21);
             this.button2.TabIndex = 10;
@@ -109,7 +115,7 @@
             // txtCostPrice
             // 
             this.txtCostPrice.BackColor = System.Drawing.Color.White;
-            this.txtCostPrice.Location = new System.Drawing.Point(130, 185);
+            this.txtCostPrice.Location = new System.Drawing.Point(130, 166);
             this.txtCostPrice.Name = "txtCostPrice";
             this.txtCostPrice.Size = new System.Drawing.Size(165, 21);
             this.txtCostPrice.TabIndex = 9;
@@ -117,7 +123,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(16, 188);
+            this.label1.Location = new System.Drawing.Point(16, 169);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 13);
             this.label1.TabIndex = 8;
@@ -130,7 +136,7 @@
             this.Button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.Button3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.Button3.Location = new System.Drawing.Point(297, 154);
+            this.Button3.Location = new System.Drawing.Point(297, 135);
             this.Button3.Name = "Button3";
             this.Button3.Size = new System.Drawing.Size(26, 21);
             this.Button3.TabIndex = 4;
@@ -150,7 +156,7 @@
             // txtDescription
             // 
             this.txtDescription.BackColor = System.Drawing.Color.White;
-            this.txtDescription.Location = new System.Drawing.Point(130, 97);
+            this.txtDescription.Location = new System.Drawing.Point(130, 201);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(487, 21);
             this.txtDescription.TabIndex = 1;
@@ -158,7 +164,7 @@
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(16, 100);
+            this.Label2.Location = new System.Drawing.Point(16, 204);
             this.Label2.Name = "Label2";
             this.Label2.Size = new System.Drawing.Size(80, 13);
             this.Label2.TabIndex = 4;
@@ -167,7 +173,7 @@
             // txtReorderLevel
             // 
             this.txtReorderLevel.BackColor = System.Drawing.Color.White;
-            this.txtReorderLevel.Location = new System.Drawing.Point(452, 155);
+            this.txtReorderLevel.Location = new System.Drawing.Point(452, 136);
             this.txtReorderLevel.Name = "txtReorderLevel";
             this.txtReorderLevel.Size = new System.Drawing.Size(165, 21);
             this.txtReorderLevel.TabIndex = 7;
@@ -175,7 +181,7 @@
             // txtSalePrice
             // 
             this.txtSalePrice.BackColor = System.Drawing.Color.White;
-            this.txtSalePrice.Location = new System.Drawing.Point(452, 185);
+            this.txtSalePrice.Location = new System.Drawing.Point(452, 166);
             this.txtSalePrice.Name = "txtSalePrice";
             this.txtSalePrice.Size = new System.Drawing.Size(165, 21);
             this.txtSalePrice.TabIndex = 5;
@@ -183,7 +189,7 @@
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(338, 158);
+            this.Label9.Location = new System.Drawing.Point(338, 139);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(96, 13);
             this.Label9.TabIndex = 4;
@@ -192,7 +198,7 @@
             // Label7
             // 
             this.Label7.AutoSize = true;
-            this.Label7.Location = new System.Drawing.Point(349, 188);
+            this.Label7.Location = new System.Drawing.Point(349, 169);
             this.Label7.Name = "Label7";
             this.Label7.Size = new System.Drawing.Size(73, 13);
             this.Label7.TabIndex = 4;
@@ -201,7 +207,7 @@
             // txtStocksOnHand
             // 
             this.txtStocksOnHand.BackColor = System.Drawing.Color.White;
-            this.txtStocksOnHand.Location = new System.Drawing.Point(452, 127);
+            this.txtStocksOnHand.Location = new System.Drawing.Point(452, 108);
             this.txtStocksOnHand.Name = "txtStocksOnHand";
             this.txtStocksOnHand.Size = new System.Drawing.Size(165, 21);
             this.txtStocksOnHand.TabIndex = 6;
@@ -209,7 +215,7 @@
             // Label8
             // 
             this.Label8.AutoSize = true;
-            this.Label8.Location = new System.Drawing.Point(338, 130);
+            this.Label8.Location = new System.Drawing.Point(338, 111);
             this.Label8.Name = "Label8";
             this.Label8.Size = new System.Drawing.Size(105, 13);
             this.Label8.TabIndex = 4;
@@ -218,7 +224,7 @@
             // txtCategory
             // 
             this.txtCategory.BackColor = System.Drawing.Color.White;
-            this.txtCategory.Location = new System.Drawing.Point(130, 153);
+            this.txtCategory.Location = new System.Drawing.Point(130, 134);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(165, 21);
             this.txtCategory.TabIndex = 3;
@@ -226,7 +232,7 @@
             // Label5
             // 
             this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(16, 156);
+            this.Label5.Location = new System.Drawing.Point(16, 137);
             this.Label5.Name = "Label5";
             this.Label5.Size = new System.Drawing.Size(69, 13);
             this.Label5.TabIndex = 4;
@@ -235,7 +241,7 @@
             // txtBarcode
             // 
             this.txtBarcode.BackColor = System.Drawing.Color.White;
-            this.txtBarcode.Location = new System.Drawing.Point(130, 125);
+            this.txtBarcode.Location = new System.Drawing.Point(130, 106);
             this.txtBarcode.Name = "txtBarcode";
             this.txtBarcode.Size = new System.Drawing.Size(165, 21);
             this.txtBarcode.TabIndex = 2;
@@ -243,20 +249,11 @@
             // Label4
             // 
             this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(16, 128);
+            this.Label4.Location = new System.Drawing.Point(16, 109);
             this.Label4.Name = "Label4";
             this.Label4.Size = new System.Drawing.Size(63, 13);
             this.Label4.TabIndex = 4;
             this.Label4.Text = "Barcode :";
-            // 
-            // txtProductCode
-            // 
-            this.txtProductCode.BackColor = System.Drawing.Color.White;
-            this.txtProductCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtProductCode.Location = new System.Drawing.Point(130, 70);
-            this.txtProductCode.Name = "txtProductCode";
-            this.txtProductCode.Size = new System.Drawing.Size(487, 21);
-            this.txtProductCode.TabIndex = 0;
             // 
             // Label3
             // 
@@ -351,6 +348,42 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(338, 78);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Product Unit :";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 76);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(87, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Product Title :";
+            // 
+            // txtProductCode
+            // 
+            this.txtProductCode.BackColor = System.Drawing.Color.White;
+            this.txtProductCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProductCode.Location = new System.Drawing.Point(130, 76);
+            this.txtProductCode.Name = "txtProductCode";
+            this.txtProductCode.Size = new System.Drawing.Size(165, 21);
+            this.txtProductCode.TabIndex = 0;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(452, 75);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(165, 21);
+            this.comboBox1.TabIndex = 13;
+            // 
             // frmAddEditProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -391,7 +424,6 @@
         internal System.Windows.Forms.Label Label5;
         internal System.Windows.Forms.TextBox txtBarcode;
         internal System.Windows.Forms.Label Label4;
-        internal System.Windows.Forms.TextBox txtProductCode;
         internal System.Windows.Forms.Label Label3;
         internal System.Windows.Forms.Label Label6;
         private System.Windows.Forms.Panel panel2;
@@ -403,5 +435,9 @@
         internal System.Windows.Forms.TextBox txtCostPrice;
         internal System.Windows.Forms.Label label1;
         internal System.Windows.Forms.Button button2;
+        internal System.Windows.Forms.Label label10;
+        internal System.Windows.Forms.Label label11;
+        internal System.Windows.Forms.TextBox txtProductCode;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

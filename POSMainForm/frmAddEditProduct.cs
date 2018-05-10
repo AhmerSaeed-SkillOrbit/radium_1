@@ -238,5 +238,10 @@ namespace POSMainForm
         {
             txtBarcode.Text = Class1.IDGenerate(5);
         }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -378,6 +378,8 @@ namespace POSMainForm
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
+                    //Ahmer - Add productunit field here
+
                     SQLConn.sqL = @"insert into transactiondetails(InvoiceNo,ProductNo,ItemName,ItemPrice,Quantity) 
                         values ('" + invId + "', " + dataGridView1.Rows[i].Cells[0].Value.ToString() + ",'" + dataGridView1.Rows[i].Cells[1].Value.ToString() + "','" + dataGridView1.Rows[i].Cells[2].Value.ToString() + "',  '" + dataGridView1.Rows[i].Cells[3].Value.ToString() + "')";
                     SQLConn.ConnDB();
@@ -453,7 +455,7 @@ namespace POSMainForm
             //offset = offset + (int)FontHeight;
 
             //
-            Image img = System.Drawing.Image.FromFile("E:\\GitHub-Clone\\radium_1\\POSMainForm\\Resources\\logo_2_1.jpg");
+            Image img = System.Drawing.Image.FromFile("E:\\GitHub-Clone\\radium_1\\POSMainForm\\Resources\\asaa.jpg");
             Point loc = new Point(110,5);
             e.Graphics.DrawImage(img, loc);
 

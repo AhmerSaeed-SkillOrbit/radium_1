@@ -22,43 +22,44 @@ namespace POSMainForm
         }
 
         public void LoadProducts(string strSearch)
+        {
+            try
             {
-                try
+                SQLConn.sqL = "SELECT pu.UnitName, pu.Id, ProductNo, ProductCOde, P.Description, Barcode,costPrice, UnitPrice, StocksOnHand, ReorderLevel, CategoryName FROM Product as P LEFT JOIN Category C ON P.CategoryNo = C.CategoryNo LEFT JOIN productunit pu ON pu.Id = P.ProductUnitId WHERE P.Barcode LIKE '" + strSearch + "%' or P.ProductCode LIKE '" + strSearch + "%' or C.CategoryName LIKE '" + strSearch + "%' ";
+                SQLConn.ConnDB();
+                SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
+                SQLConn.dr = SQLConn.cmd.ExecuteReader();
+
+                ListViewItem x = null;
+                ListView1.Items.Clear();
+
+
+                while (SQLConn.dr.Read() == true)
                 {
-                    SQLConn.sqL = "SELECT ProductNo, ProductCOde, P.Description, Barcode,costPrice, UnitPrice, StocksOnHand, ReorderLevel, CategoryName FROM Product as P LEFT JOIN Category C ON P.CategoryNo = C.CategoryNo WHERE P.Barcode LIKE '" + strSearch + "%' or P.ProductCode LIKE '" + strSearch + "%' or C.CategoryName LIKE '" + strSearch + "%' ";
-                    SQLConn.ConnDB();
-                    SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
-                    SQLConn.dr = SQLConn.cmd.ExecuteReader();
+                    x = new ListViewItem(SQLConn.dr["ProductNo"].ToString());
+                    x.SubItems.Add(SQLConn.dr["ProductCode"].ToString());
+                    x.SubItems.Add(SQLConn.dr["Description"].ToString());
+                    x.SubItems.Add(SQLConn.dr["Barcode"].ToString());
+                    x.SubItems.Add(SQLConn.dr["CategoryName"].ToString());
+                    x.SubItems.Add(Strings.Format(SQLConn.dr["costPrice"], "#,##0.00"));
+                    x.SubItems.Add(Strings.Format(SQLConn.dr["UnitPrice"], "#,##0.00"));
+                    x.SubItems.Add(SQLConn.dr["StocksOnHand"].ToString());
+                    x.SubItems.Add(SQLConn.dr["ReOrderLevel"].ToString());
+                    x.SubItems.Add(SQLConn.dr["UnitName"].ToString());
 
-                    ListViewItem x = null;
-                    ListView1.Items.Clear();
-
-
-                    while (SQLConn.dr.Read() == true)
-                    {
-                        x = new ListViewItem(SQLConn.dr["ProductNo"].ToString());
-                        x.SubItems.Add(SQLConn.dr["ProductCode"].ToString());
-                        x.SubItems.Add(SQLConn.dr["Description"].ToString());
-                        x.SubItems.Add(SQLConn.dr["Barcode"].ToString());
-                        x.SubItems.Add(SQLConn.dr["CategoryName"].ToString());
-                        x.SubItems.Add(Strings.Format(SQLConn.dr["costPrice"], "#,##0.00"));
-                        x.SubItems.Add(Strings.Format(SQLConn.dr["UnitPrice"], "#,##0.00"));
-                        x.SubItems.Add(SQLConn.dr["StocksOnHand"].ToString());
-                        x.SubItems.Add(SQLConn.dr["ReOrderLevel"].ToString());
-
-                        ListView1.Items.Add(x);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Interaction.MsgBox(ex.ToString());
-                }
-                finally
-                {
-                    SQLConn.cmd.Dispose();
-                    SQLConn.conn.Close();
+                    ListView1.Items.Add(x);
                 }
             }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.ToString());
+            }
+            finally
+            {
+                SQLConn.cmd.Dispose();
+                SQLConn.conn.Close();
+            }
+        }
 
         private void btnNew_Click(object sender, EventArgs e)
         {
@@ -142,7 +143,7 @@ namespace POSMainForm
                 }
                 else
                 {
-                    
+
                     productID = Convert.ToInt32(ListView1.FocusedItem.Text);
                     frmListProductStocksIn aeP = new frmListProductStocksIn(productID);
                     aeP.ShowDialog();
@@ -168,6 +169,16 @@ namespace POSMainForm
             {
                 return;
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

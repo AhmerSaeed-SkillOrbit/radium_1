@@ -58,7 +58,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.txtProductCode = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbProductUnit = new System.Windows.Forms.ComboBox();
             this.GroupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -67,7 +67,7 @@
             // 
             // GroupBox1
             // 
-            this.GroupBox1.Controls.Add(this.comboBox1);
+            this.GroupBox1.Controls.Add(this.cbProductUnit);
             this.GroupBox1.Controls.Add(this.label10);
             this.GroupBox1.Controls.Add(this.button2);
             this.GroupBox1.Controls.Add(this.txtCostPrice);
@@ -282,6 +282,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(668, 54);
             this.panel2.TabIndex = 12;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox2
             // 
@@ -376,13 +377,15 @@
             this.txtProductCode.Size = new System.Drawing.Size(165, 21);
             this.txtProductCode.TabIndex = 0;
             // 
-            // comboBox1
+            // cbProductUnit
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(452, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 21);
-            this.comboBox1.TabIndex = 13;
+            this.cbProductUnit.FormattingEnabled = true;
+            this.cbProductUnit.Items.AddRange(new object[] {
+            "Select Product"});
+            this.cbProductUnit.Location = new System.Drawing.Point(452, 75);
+            this.cbProductUnit.Name = "cbProductUnit";
+            this.cbProductUnit.Size = new System.Drawing.Size(165, 21);
+            this.cbProductUnit.TabIndex = 13;
             // 
             // frmAddEditProduct
             // 
@@ -438,6 +441,6 @@
         internal System.Windows.Forms.Label label10;
         internal System.Windows.Forms.Label label11;
         internal System.Windows.Forms.TextBox txtProductCode;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbProductUnit;
     }
 }

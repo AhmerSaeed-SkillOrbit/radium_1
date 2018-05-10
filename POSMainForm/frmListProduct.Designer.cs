@@ -49,6 +49,7 @@
             this.ColumnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ColumnHeader11 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -56,7 +57,7 @@
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -215,6 +216,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(879, 65);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // picClose
             // 
@@ -262,7 +264,8 @@
             this.columnHeader1,
             this.ColumnHeader9,
             this.ColumnHeader10,
-            this.ColumnHeader11});
+            this.ColumnHeader11,
+            this.columnHeader2});
             this.ListView1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ListView1.FullRowSelect = true;
             this.ListView1.GridLines = true;
@@ -272,6 +275,7 @@
             this.ListView1.TabIndex = 30;
             this.ListView1.UseCompatibleStateImageBehavior = false;
             this.ListView1.View = System.Windows.Forms.View.Details;
+            this.ListView1.SelectedIndexChanged += new System.EventHandler(this.ListView1_SelectedIndexChanged);
             // 
             // ColumnHeader4
             // 
@@ -281,35 +285,47 @@
             // ColumnHeader5
             // 
             this.ColumnHeader5.Text = "Item Name";
-            this.ColumnHeader5.Width = 141;
+            this.ColumnHeader5.Width = 103;
             // 
             // ColumnHeader6
             // 
+            this.ColumnHeader6.DisplayIndex = 9;
             this.ColumnHeader6.Text = "Product Description";
             this.ColumnHeader6.Width = 260;
             // 
             // ColumnHeader7
             // 
+            this.ColumnHeader7.DisplayIndex = 4;
             this.ColumnHeader7.Text = "Barcode";
             this.ColumnHeader7.Width = 106;
             // 
             // ColumnHeader8
             // 
+            this.ColumnHeader8.DisplayIndex = 7;
             this.ColumnHeader8.Text = "Category";
             this.ColumnHeader8.Width = 110;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.DisplayIndex = 2;
+            this.columnHeader1.Text = "Cost Price";
+            this.columnHeader1.Width = 98;
+            // 
             // ColumnHeader9
             // 
+            this.ColumnHeader9.DisplayIndex = 3;
             this.ColumnHeader9.Text = "Unit Price";
             this.ColumnHeader9.Width = 98;
             // 
             // ColumnHeader10
             // 
+            this.ColumnHeader10.DisplayIndex = 6;
             this.ColumnHeader10.Text = "Stocks on Hand";
             this.ColumnHeader10.Width = 95;
             // 
             // ColumnHeader11
             // 
+            this.ColumnHeader11.DisplayIndex = 9;
             this.ColumnHeader11.Text = "Reorder Level";
             this.ColumnHeader11.Width = 85;
             // 
@@ -344,11 +360,11 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(114, 70);
             // 
-            // columnHeader1
+            // columnHeader2
             // 
-            this.columnHeader1.DisplayIndex = 8;
-            this.columnHeader1.Text = "Cost Price";
-            this.columnHeader1.Width = 98;
+            this.columnHeader2.DisplayIndex = 2;
+            this.columnHeader2.Text = "Measuring Unit";
+            this.columnHeader2.Width = 97;
             // 
             // frmListProduct
             // 
@@ -405,5 +421,6 @@
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }

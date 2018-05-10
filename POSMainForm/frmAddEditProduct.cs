@@ -56,13 +56,19 @@ namespace POSMainForm
         {
             try
             {
-                SQLConn.sqL = "SELECT ProductNo, ProductCode, P.Description, Barcode, P.CategoryNo, CategoryName,costPrice, UnitPrice, StocksOnHand, ReorderLevel FROM Product as P LEFT JOIN Category as C ON P.CategoryNo = C.CategoryNo WHERE ProductNo = '" + productID + "'";
+                //PopulateProductUnitComboBox();
+
+                SQLConn.sqL = "SELECT pu.UnitName as UnitName, pu.Id as ProductUnitId, ProductNo, ProductCode, P.Description, Barcode, P.CategoryNo, CategoryName,costPrice, UnitPrice, StocksOnHand, ReorderLevel FROM Product as P LEFT JOIN Category as C ON P.CategoryNo = C.CategoryNo LEFT JOIN productunit pu ON pu.Id = P.ProductUnitId WHERE ProductNo = '" + productID + "'";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.dr = SQLConn.cmd.ExecuteReader();
 
                 if (SQLConn.dr.Read() == true)
                 {
+
+                    //BindProductUnitComboBox(SQLConn.dr["UnitName"].ToString());
+
+
                     lblProductNo.Text = SQLConn.dr["ProductNo"].ToString();
                     txtProductCode.Text = SQLConn.dr["ProductCode"].ToString();
                     txtDescription.Text = SQLConn.dr["Description"].ToString();
@@ -73,6 +79,8 @@ namespace POSMainForm
                     txtCostPrice.Text = Strings.Format(SQLConn.dr["costPrice"], "#,##0.00");
                     txtStocksOnHand.Text = SQLConn.dr["StocksOnHand"].ToString();
                     txtReorderLevel.Text = SQLConn.dr["ReorderLevel"].ToString();
+                    //cbProductUnit.SelectedValue = SQLConn.dr["ProductUnitId"].ToString();
+                    //cbProductUnit.SelectedText = SQLConn.dr["UnitName"].ToString();
                 }
             }
             catch (Exception ex)
@@ -88,9 +96,15 @@ namespace POSMainForm
 
         private void AddProducts()
         {
+
+            Console.WriteLine("Combo Box Value");
+
+            Console.WriteLine(cbProductUnit.SelectedItem.ToString());
+            Console.WriteLine(cbProductUnit.SelectedIndex);
+
             try
             {
-                SQLConn.sqL = "INSERT INTO Product(ProductCode, Description, Barcode, UnitPrice,costPrice, StocksOnHand, ReorderLevel, CategoryNo) VALUES('" + txtProductCode.Text + "', '" + txtDescription.Text + "', '" + txtBarcode.Text.Trim() + "', '" + txtSalePrice.Text.Replace(",", "") + "','" + txtCostPrice.Text.Replace(",", "") + "', '" + txtStocksOnHand.Text.Replace(",", "") + "', '" + txtReorderLevel.Text + "', '" + categoryID + "')";
+                SQLConn.sqL = "INSERT INTO Product(ProductCode, Description, Barcode, UnitPrice,costPrice, StocksOnHand, ReorderLevel, CategoryNo, ProductUnitId) VALUES('" + txtProductCode.Text + "', '" + txtDescription.Text + "', '" + txtBarcode.Text.Trim() + "', '" + txtSalePrice.Text.Replace(",", "") + "','" + txtCostPrice.Text.Replace(",", "") + "', '" + txtStocksOnHand.Text.Replace(",", "") + "', '" + txtReorderLevel.Text + "', '" + categoryID + "','" + cbProductUnit.SelectedIndex + "')";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.cmd.ExecuteNonQuery();
@@ -170,6 +184,7 @@ namespace POSMainForm
                 lblTitle.Text = "Adding New Product";
                 ClearFields();
                 GetProductNo();
+                PopulateProductUnitComboBox();
             }
             else
             {
@@ -185,22 +200,23 @@ namespace POSMainForm
                 Interaction.MsgBox("Please select category.", MsgBoxStyle.Information, "Category");
                 return;
             }
-            
+
             if (SQLConn.adding == true)
             {
-                frmMain mainForm = new frmMain(null,0);
+                frmMain mainForm = new frmMain(null, 0);
                 if (!mainForm.IsProductExist(txtProductCode.Text, txtBarcode.Text.Trim()))
                 {
                     AddProducts();
                 }
-                else {
+                else
+                {
                     Interaction.MsgBox("Product already exist.", MsgBoxStyle.Information, "Add Product");
                 }
             }
             else
             {
                 UpdateProduct();
-               
+
             }
 
             if (System.Windows.Forms.Application.OpenForms["frmListProduct"] != null)
@@ -242,6 +258,102 @@ namespace POSMainForm
         private void label10_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public void PopulateProductUnitComboBox()
+        {
+            try
+            {
+                DataRow dr;
+                SQLConn.sqL = "SELECT u.Id as Id, u.UnitName as UnitName FROM `productunit` AS u;";
+                SQLConn.ConnDB();
+                SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
+                MySqlDataAdapter sda = new MySqlDataAdapter(SQLConn.cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                dr = dt.NewRow();
+                dr.ItemArray = new object[] { 0, "Select Unit" };
+                dt.Rows.InsertAt(dr, 0);
+
+                cbProductUnit.ValueMember = "Id";
+                cbProductUnit.DisplayMember = "UnitName";
+                cbProductUnit.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.ToString());
+            }
+            finally
+            {
+                SQLConn.cmd.Dispose();
+                SQLConn.conn.Close();
+            }
+
+
+
+            //using (SqlDataAdapter da = new SqlDataAdapter("SELECT name FROM sys.databases ORDER BY name", connection))
+            //{
+            //    DataTable dt = new DataTable();
+            //    da.Fill(dt);
+            //    cbDBName.DisplayMember = "name";
+            //    cbDBName.DataSource = dt;
+            //    connection.Close();
+            //}
+        }
+
+        public void BindProductUnitComboBox(string SelectedProductUnit)
+        {
+            try
+            {
+                DataRow dr;
+                SQLConn.sqL = "SELECT u.Id as Id, u.UnitName as UnitName FROM `productunit` AS u;";
+                SQLConn.ConnDB();
+                SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
+                MySqlDataAdapter sda = new MySqlDataAdapter(SQLConn.cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                dr = dt.NewRow();
+                dr.ItemArray = new object[] { 0, "Select Unit" };
+                dt.Rows.InsertAt(dr, 0);
+
+                cbProductUnit.ValueMember = "Id";
+                cbProductUnit.DisplayMember = "UnitName";
+                cbProductUnit.DataSource = dt;
+
+                Console.WriteLine("Checking");
+                Console.WriteLine(dt);
+
+                
+
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.ToString());
+            }
+            finally
+            {
+                //SQLConn.cmd.Dispose();
+                //SQLConn.conn.Close();
+            }
+
+
+
+            //using (SqlDataAdapter da = new SqlDataAdapter("SELECT name FROM sys.databases ORDER BY name", connection))
+            //{
+            //    DataTable dt = new DataTable();
+            //    da.Fill(dt);
+            //    cbDBName.DisplayMember = "name";
+            //    cbDBName.DataSource = dt;
+            //    connection.Close();
+            //}
         }
     }
 }

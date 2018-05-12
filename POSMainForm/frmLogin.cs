@@ -10,6 +10,7 @@ using System.Linq;
 using System.Xml.Linq;
 
 using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 
 namespace POSMainForm
 {
@@ -30,7 +31,9 @@ namespace POSMainForm
         {
             try
             {
-                SQLConn.sqL = "SELECT * FROM Staff WHERE Username = '" + txtusername.Text + "' AND UPassword = '" + txtPassword.Text + "'";
+                var HashedPassword = GetHashedPassword(txtPassword.Text);
+
+                SQLConn.sqL = "SELECT * FROM Staff WHERE Username = '" + txtusername.Text + "' AND UPassword = '" + HashedPassword + "'";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.dr = SQLConn.cmd.ExecuteReader();
@@ -111,6 +114,13 @@ namespace POSMainForm
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public string GetHashedPassword(string password)
+        {
+            byte[] bytes = System.Text.Encoding.Unicode.GetBytes(password);
+            byte[] inArray = HashAlgorithm.Create("SHA1").ComputeHash(bytes);
+            return Convert.ToBase64String(inArray);
         }
     }
 }

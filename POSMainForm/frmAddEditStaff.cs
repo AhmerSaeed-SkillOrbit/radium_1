@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.Linq;
 using System.Xml.Linq;
 using MySql.Data.MySqlClient;
+using System.Security.Cryptography;
 
 namespace POSMainForm
 {
@@ -81,11 +82,21 @@ namespace POSMainForm
             }
         }
 
+        public string GetHashedPassword(string password)
+        {
+            byte[] bytes = System.Text.Encoding.Unicode.GetBytes(password);
+            byte[] inArray = HashAlgorithm.Create("SHA1").ComputeHash(bytes);
+            return Convert.ToBase64String(inArray);
+        }
+
         private void AddStaff()
         {
+            Console.WriteLine("Hashed Password");
+            var HashedPassword = GetHashedPassword(txtPassword.Text);
+
             try
             {
-                SQLConn.sqL = "INSERT INTO STAFF(Lastname, Firstname, MI, Street, Barangay, City, Province, ContactNo, Username, Role, UPassword) VALUES('" + txtLastname.Text + "', '" + txtFirstname.Text + "', '" + txtMI.Text + "', '" + txtStreet.Text + "', '" + txtBarangay.Text + "', '" + txtCity.Text + "', '" + txtProvince.Text + "', '" + txtContractNo.Text + "', '" + txtUsername.Text + "', '" + txtRole.Text + "', '" + txtPassword.Text + "')";
+                SQLConn.sqL = "INSERT INTO STAFF(Lastname, Firstname, MI, Street, Barangay, City, Province, ContactNo, Username, Role, UPassword) VALUES('" + txtLastname.Text + "', '" + txtFirstname.Text + "', '" + txtMI.Text + "', '" + txtStreet.Text + "', '" + txtBarangay.Text + "', '" + txtCity.Text + "', '" + txtProvince.Text + "', '" + txtContractNo.Text + "', '" + txtUsername.Text + "', '" + txtRole.Text + "', '" + HashedPassword + "')";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.cmd.ExecuteNonQuery();

@@ -24,11 +24,11 @@ namespace POSMainForm
 
         private void GetProductInfo()
         {
-           
             try
             {
+                PopulateProductUnitComboBox();
 
-                SQLConn.sqL = "SELECT ProductCode, Description, UnitPrice,costPrice, StocksOnHand FROM Product WHERE ProductNo =" + productID + "";
+                SQLConn.sqL = "SELECT ProductCode, Description, UnitPrice,costPrice, StocksOnHand,pu.UnitName as UnitName, pu.Id as ProductUnitId FROM Product LEFT JOIN productunit pu ON pu.Id = Product.ProductUnitId WHERE ProductNo =" + productID + "";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.dr = SQLConn.cmd.ExecuteReader();
@@ -57,7 +57,7 @@ namespace POSMainForm
         {
             try
             {
-                SQLConn.sqL = "INSERT INTO StockIn(ProductNo, Quantity, DateIn) Values('" + productID + "', '" + txtQuantity.Text + "', '" + System.DateTime.Now.ToString("MM/dd/yyyy") + "')";
+                SQLConn.sqL = "INSERT INTO StockIn(ProductNo, Quantity, DateIn, ProductUnitId) Values('" + productID + "', '" + txtQuantity.Text + "', '" + System.DateTime.Now.ToString("MM/dd/yyyy") + "','" + cbProductUnit.SelectedIndex + "')";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.cmd.ExecuteNonQuery();
@@ -121,6 +121,43 @@ namespace POSMainForm
         private void txtQuantity_TextChanged(object sender, EventArgs e)
         {
             txtTotalStocks.Text = Strings.Format(Conversion.Val(lblCurrentStocks.Text) + Conversion.Val(txtQuantity.Text), "#,##0.00");
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        public void PopulateProductUnitComboBox()
+        {
+            try
+            {
+                DataRow dr;
+                SQLConn.sqL = "SELECT u.Id as Id, u.UnitName as UnitName FROM `productunit` AS u;";
+                SQLConn.ConnDB();
+                SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
+                MySqlDataAdapter sda = new MySqlDataAdapter(SQLConn.cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+
+                dr = dt.NewRow();
+                dr.ItemArray = new object[] { 0, "Select Unit" };
+                dt.Rows.InsertAt(dr, 0);
+
+                cbProductUnit.ValueMember = "Id";
+                cbProductUnit.DisplayMember = "UnitName";
+                cbProductUnit.DataSource = dt;
+
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.ToString());
+            }
+            finally
+            {
+                SQLConn.cmd.Dispose();
+                SQLConn.conn.Close();
+            }
         }
     }
 }

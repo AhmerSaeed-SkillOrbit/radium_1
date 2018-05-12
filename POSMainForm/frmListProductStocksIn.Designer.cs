@@ -33,6 +33,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCostPrice = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtTotalStocks = new System.Windows.Forms.Label();
             this.Label9 = new System.Windows.Forms.Label();
@@ -48,8 +50,8 @@
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblCostPrice = new System.Windows.Forms.Label();
+            this.cbProductUnit = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.GroupBox1.SuspendLayout();
@@ -65,6 +67,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(668, 54);
             this.panel2.TabIndex = 12;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // pictureBox2
             // 
@@ -89,6 +92,8 @@
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.cbProductUnit);
+            this.GroupBox1.Controls.Add(this.label10);
             this.GroupBox1.Controls.Add(this.lblCostPrice);
             this.GroupBox1.Controls.Add(this.label3);
             this.GroupBox1.Controls.Add(this.txtQuantity);
@@ -111,6 +116,24 @@
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Stock-In Information";
             // 
+            // lblCostPrice
+            // 
+            this.lblCostPrice.BackColor = System.Drawing.Color.White;
+            this.lblCostPrice.Location = new System.Drawing.Point(354, 88);
+            this.lblCostPrice.Name = "lblCostPrice";
+            this.lblCostPrice.Size = new System.Drawing.Size(137, 22);
+            this.lblCostPrice.TabIndex = 11;
+            this.lblCostPrice.Text = " ";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(272, 90);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 15);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Cost Price :";
+            // 
             // txtQuantity
             // 
             this.txtQuantity.Location = new System.Drawing.Point(108, 150);
@@ -122,7 +145,7 @@
             // txtTotalStocks
             // 
             this.txtTotalStocks.BackColor = System.Drawing.Color.White;
-            this.txtTotalStocks.Location = new System.Drawing.Point(354, 150);
+            this.txtTotalStocks.Location = new System.Drawing.Point(354, 124);
             this.txtTotalStocks.Name = "txtTotalStocks";
             this.txtTotalStocks.Size = new System.Drawing.Size(137, 22);
             this.txtTotalStocks.TabIndex = 3;
@@ -131,7 +154,7 @@
             // Label9
             // 
             this.Label9.AutoSize = true;
-            this.Label9.Location = new System.Drawing.Point(262, 153);
+            this.Label9.Location = new System.Drawing.Point(262, 127);
             this.Label9.Name = "Label9";
             this.Label9.Size = new System.Drawing.Size(76, 15);
             this.Label9.TabIndex = 0;
@@ -140,7 +163,7 @@
             // lblCurrentStocks
             // 
             this.lblCurrentStocks.BackColor = System.Drawing.Color.White;
-            this.lblCurrentStocks.Location = new System.Drawing.Point(354, 118);
+            this.lblCurrentStocks.Location = new System.Drawing.Point(108, 120);
             this.lblCurrentStocks.Name = "lblCurrentStocks";
             this.lblCurrentStocks.Size = new System.Drawing.Size(137, 22);
             this.lblCurrentStocks.TabIndex = 3;
@@ -149,7 +172,7 @@
             // Label6
             // 
             this.Label6.AutoSize = true;
-            this.Label6.Location = new System.Drawing.Point(262, 119);
+            this.Label6.Location = new System.Drawing.Point(8, 120);
             this.Label6.Name = "Label6";
             this.Label6.Size = new System.Drawing.Size(90, 15);
             this.Label6.TabIndex = 0;
@@ -262,23 +285,24 @@
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // label3
+            // cbProductUnit
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(272, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 15);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "Cost Price :";
+            this.cbProductUnit.FormattingEnabled = true;
+            this.cbProductUnit.Items.AddRange(new object[] {
+            "Select Product"});
+            this.cbProductUnit.Location = new System.Drawing.Point(357, 155);
+            this.cbProductUnit.Name = "cbProductUnit";
+            this.cbProductUnit.Size = new System.Drawing.Size(134, 23);
+            this.cbProductUnit.TabIndex = 15;
             // 
-            // lblCostPrice
+            // label10
             // 
-            this.lblCostPrice.BackColor = System.Drawing.Color.White;
-            this.lblCostPrice.Location = new System.Drawing.Point(354, 88);
-            this.lblCostPrice.Name = "lblCostPrice";
-            this.lblCostPrice.Size = new System.Drawing.Size(137, 22);
-            this.lblCostPrice.TabIndex = 11;
-            this.lblCostPrice.Text = " ";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(258, 155);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 15);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Product Unit :";
             // 
             // frmListProductStocksIn
             // 
@@ -326,5 +350,7 @@
         private System.Windows.Forms.Button button3;
         internal System.Windows.Forms.Label lblCostPrice;
         internal System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cbProductUnit;
+        internal System.Windows.Forms.Label label10;
     }
 }

@@ -75,7 +75,7 @@ namespace POSMainForm
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
-            
+
             frmPOS1 lp = new frmPOS1(StaffID);
             lp.ShowDialog();
 
@@ -114,11 +114,12 @@ namespace POSMainForm
 
         private void label2_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
+            int ProductUnitId;
             OpenFileDialog ope = new OpenFileDialog();
             ope.Filter = "Excel Files|*.xls;*.xlsx;*.xlsm;";
 
@@ -134,7 +135,7 @@ namespace POSMainForm
                     IExcelDataReader excelReader = ExcelReaderFactory.CreateOpenXmlReader(stream);
                     DataSet result = excelReader.AsDataSet();
 
-                    Console.WriteLine("Now Print the Table Data");                    
+                    Console.WriteLine("Now Print the Table Data");
 
                     foreach (DataTable table in result.Tables)
                     {
@@ -163,18 +164,45 @@ namespace POSMainForm
                             {
                                 Console.WriteLine("#### This Product not Exist ####");
 
-                                SQLConn.sqL = "INSERT INTO Product(ProductCode, Description, Barcode, UnitPrice, StocksOnHand, ReorderLevel, CategoryNo,costPrice)" +
-                                                            " VALUES('" + dr[0].ToString() + "', '" + dr[1].ToString() + "', '" + dr[2].ToString() + "', '" + double.Parse(dr[3].ToString()) + "','" + double.Parse(dr[4].ToString()) + "', '" + dr[5] + "', '" + dr[6] + "', '" + double.Parse(dr[7].ToString()) + "')";
+                                //Now check if Product Unit exist
+
+                                ProductUnitId = IsProductUnitExist(dr[8].ToString());
+
+                                if (ProductUnitId != 0)
+                                {
+                                    Console.WriteLine("Product Unit is Exist");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Product Unit not Exist");
+                                }
+
+                                SQLConn.sqL = "INSERT INTO Product(ProductCode, Description, Barcode, UnitPrice, StocksOnHand, ReorderLevel, CategoryNo,costPrice,ProductUnitId)" +
+                                                            " VALUES('" + dr[0].ToString() + "', '" + dr[1].ToString() + "', '" + dr[2].ToString() + "', '" + double.Parse(dr[3].ToString()) + "','" + double.Parse(dr[4].ToString()) + "', '" + dr[5] + "', '" + dr[6] + "', '" + double.Parse(dr[7].ToString()) + "','" + ProductUnitId + "')";
                                 SQLConn.ConnDB();
                                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                                 SQLConn.cmd.ExecuteNonQuery();
                             }
-                            else {
+                            else
+                            {
 
                                 Console.WriteLine("&&&& This Product is already Exist &&&&");
 
+                                //Now check if Product Unit exist
 
-                                SQLConn.sqL = "UPDATE Product SET ProductCode = '" + dr[0].ToString() + "', Description = '" + dr[1].ToString() + "', Barcode = '" + dr[2].ToString() + "', costPrice = '" + double.Parse(dr[7].ToString()) + "',UnitPrice = '" + double.Parse(dr[3].ToString()) + "', StocksOnHand = '" + double.Parse(dr[4].ToString()) + "', ReorderLevel = '" + dr[5].ToString() + "', CategoryNo = '" + dr[6].ToString() + "' WHERE ProductCode = '" + dr[0].ToString() + "' OR BarCode = '" + dr[2].ToString() + "'";
+                                ProductUnitId = IsProductUnitExist(dr[8].ToString());
+
+                                if (ProductUnitId != 0)
+                                {
+                                    Console.WriteLine("Product Unit is Exist");
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Product Unit not Exist");
+                                }
+
+
+                                SQLConn.sqL = "UPDATE Product SET ProductCode = '" + dr[0].ToString() + "', Description = '" + dr[1].ToString() + "', Barcode = '" + dr[2].ToString() + "', costPrice = '" + double.Parse(dr[7].ToString()) + "',UnitPrice = '" + double.Parse(dr[3].ToString()) + "', StocksOnHand = '" + double.Parse(dr[4].ToString()) + "', ReorderLevel = '" + dr[5].ToString() + "', CategoryNo = '" + dr[6].ToString() + "', ProductUnitId = '" + ProductUnitId + "' WHERE ProductCode = '" + dr[0].ToString() + "' OR BarCode = '" + dr[2].ToString() + "'";
                                 SQLConn.ConnDB();
                                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                                 SQLConn.cmd.ExecuteNonQuery();
@@ -208,17 +236,19 @@ namespace POSMainForm
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.dr = SQLConn.cmd.ExecuteReader();
-                
+
                 Console.WriteLine("Data Row");
 
-                if (SQLConn.dr.Read()==true) {
+                if (SQLConn.dr.Read() == true)
+                {
 
                     Console.WriteLine("True");
                     Console.WriteLine(SQLConn.dr["ProductNo"].ToString());
 
-                    return true;                    
+                    return true;
                 }
-                else {
+                else
+                {
                     Console.WriteLine("False");
                     return false;
                 }
@@ -227,6 +257,46 @@ namespace POSMainForm
             {
                 Interaction.MsgBox(ex.ToString());
                 return false;
+
+            }
+            finally
+            {
+                SQLConn.cmd.Dispose();
+                SQLConn.conn.Close();
+            }
+        }
+
+        //returns productUnitId if exist
+        //otherwise return 0
+        public int IsProductUnitExist(string productUnitName)
+        {
+            try
+            {
+                SQLConn.sqL = "SELECT u.Id as Id, u.UnitName as UnitName FROM `productunit` AS u WHERE UnitName = '" + productUnitName + "';";
+                SQLConn.ConnDB();
+                SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
+                SQLConn.dr = SQLConn.cmd.ExecuteReader();
+
+                Console.WriteLine("Data Row");
+
+                if (SQLConn.dr.Read() == true)
+                {
+
+                    Console.WriteLine("True");
+                    Console.WriteLine(SQLConn.dr["Id"].ToString());
+
+                    return int.Parse(SQLConn.dr["Id"].ToString());
+                }
+                else
+                {
+                    Console.WriteLine("False");
+                    return 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.ToString());
+                return 0;
 
             }
             finally

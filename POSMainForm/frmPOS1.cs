@@ -155,7 +155,7 @@ namespace POSMainForm
             DB d = new DB();
             if (e.KeyCode == Keys.Enter)
             {
-                SQLConn.sqL = "SELECT `ProductNo`, `ProductCode`,`UnitPrice`, `StocksOnHand`, `ReorderLevel` FROM `product` WHERE ProductCode = '" + txtProductName.Text + "' or barcode = '" + txtProductName.Text + "' ";
+                SQLConn.sqL = "SELECT `ProductNo`, `ProductCode`,`UnitPrice`, `StocksOnHand`, `ReorderLevel`, pu.UnitName as UnitName, pu.Id as ProductUnitId FROM `Product` LEFT JOIN productunit pu ON pu.Id = Product.ProductUnitId WHERE ProductCode = '" + txtProductName.Text + "' or barcode = '" + txtProductName.Text + "' ";
                 dt = d.GetData(SQLConn.sqL);
 
                 if(dt.Rows.Count > 0)
@@ -163,6 +163,8 @@ namespace POSMainForm
                     itemId = Int32.Parse(dt.Rows[0][0].ToString());
                     currentItemName = dt.Rows[0][1].ToString();
                     price = decimal.Parse(dt.Rows[0][2].ToString());
+                    itemUnit = dt.Rows[0][5].ToString();
+                    itemUnitId = Int32.Parse(dt.Rows[0][6].ToString());
 
                     if (int.Parse(dt.Rows[0][3].ToString()) != 0)
                     {
@@ -243,7 +245,7 @@ namespace POSMainForm
 
             if (globalStockOnHand != 0)
             {
-                dataGridView1.Rows.Add(itemId, currentItemName, price, quantity, total);
+                dataGridView1.Rows.Add(itemId, currentItemName, itemUnit, price, quantity, total);
             }
             else {
                 MessageBox.Show("This Product stock is 0 in quantity !!! ");
@@ -551,6 +553,8 @@ namespace POSMainForm
 
         public int itemId { get; set; }
         public string itemName { get; set; }
+        public string itemUnit { get; set; }
+        public int itemUnitId { get; set; }
 
         private void txtDisc_TextChanged(object sender, EventArgs e)
         {
@@ -712,6 +716,11 @@ namespace POSMainForm
         }
 
         private void txtPosition_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
         {
 
         }

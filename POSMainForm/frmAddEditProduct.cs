@@ -66,12 +66,9 @@ namespace POSMainForm
                 if (SQLConn.dr.Read() == true)
                 {
 
-                    //BindProductUnitComboBox(SQLConn.dr["UnitName"].ToString());
-
-
                     lblProductNo.Text = SQLConn.dr["ProductNo"].ToString();
                     txtProductCode.Text = SQLConn.dr["ProductCode"].ToString();
-                    txtDescription.Text = SQLConn.dr["Description"].ToString();
+                    txtDescription.Text = SQLConn.dr["Description"].ToString(); 
                     txtBarcode.Text = SQLConn.dr["Barcode"].ToString();
                     txtCategory.Text = SQLConn.dr["CategoryName"].ToString();
                     txtCategory.Tag = SQLConn.dr["CategoryNo"];
@@ -79,8 +76,7 @@ namespace POSMainForm
                     txtCostPrice.Text = Strings.Format(SQLConn.dr["costPrice"], "#,##0.00");
                     txtStocksOnHand.Text = SQLConn.dr["StocksOnHand"].ToString();
                     txtReorderLevel.Text = SQLConn.dr["ReorderLevel"].ToString();
-                    //cbProductUnit.SelectedValue = SQLConn.dr["ProductUnitId"].ToString();
-                    //cbProductUnit.SelectedText = SQLConn.dr["UnitName"].ToString();
+                    cbProductUnit.Text = SQLConn.dr["UnitName"].ToString();
                 }
             }
             catch (Exception ex)
@@ -146,7 +142,10 @@ namespace POSMainForm
         {
             try
             {
-                SQLConn.sqL = "UPDATE Product SET ProductCode = '" + txtProductCode.Text + "', Description = '" + txtDescription.Text + "', Barcode = '" + txtBarcode.Text.Trim() + "', costPrice = '" + txtCostPrice.Text.Replace(",", "") + "',UnitPrice = '" + txtSalePrice.Text.Replace(",", "") + "', StocksOnHand = '" + txtStocksOnHand.Text.Replace(",", "") + "', ReorderLevel = '" + txtReorderLevel.Text + "', CategoryNo ='" + categoryID + "' WHERE ProductNo = '" + productID + "'";
+                Console.WriteLine("Product Unit Selected Text");
+                Console.WriteLine(cbProductUnit.SelectedIndex);
+
+                SQLConn.sqL = "UPDATE Product SET ProductCode = '" + txtProductCode.Text + "', Description = '" + txtDescription.Text + "', Barcode = '" + txtBarcode.Text.Trim() + "', costPrice = '" + txtCostPrice.Text.Replace(",", "") + "',UnitPrice = '" + txtSalePrice.Text.Replace(",", "") + "', StocksOnHand = '" + txtStocksOnHand.Text.Replace(",", "") + "', ReorderLevel = '" + txtReorderLevel.Text + "', CategoryNo ='" + categoryID + "', ProductUnitId = '" + cbProductUnit.SelectedIndex + "' WHERE ProductNo = '" + productID + "'";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.cmd.ExecuteNonQuery();
@@ -295,65 +294,6 @@ namespace POSMainForm
                 SQLConn.cmd.Dispose();
                 SQLConn.conn.Close();
             }
-
-
-
-            //using (SqlDataAdapter da = new SqlDataAdapter("SELECT name FROM sys.databases ORDER BY name", connection))
-            //{
-            //    DataTable dt = new DataTable();
-            //    da.Fill(dt);
-            //    cbDBName.DisplayMember = "name";
-            //    cbDBName.DataSource = dt;
-            //    connection.Close();
-            //}
-        }
-
-        public void BindProductUnitComboBox(string SelectedProductUnit)
-        {
-            try
-            {
-                DataRow dr;
-                SQLConn.sqL = "SELECT u.Id as Id, u.UnitName as UnitName FROM `productunit` AS u;";
-                SQLConn.ConnDB();
-                SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
-                MySqlDataAdapter sda = new MySqlDataAdapter(SQLConn.cmd);
-                DataTable dt = new DataTable();
-                sda.Fill(dt);
-
-                dr = dt.NewRow();
-                dr.ItemArray = new object[] { 0, "Select Unit" };
-                dt.Rows.InsertAt(dr, 0);
-
-                cbProductUnit.ValueMember = "Id";
-                cbProductUnit.DisplayMember = "UnitName";
-                cbProductUnit.DataSource = dt;
-
-                Console.WriteLine("Checking");
-                Console.WriteLine(dt);
-
-                
-
-            }
-            catch (Exception ex)
-            {
-                Interaction.MsgBox(ex.ToString());
-            }
-            finally
-            {
-                //SQLConn.cmd.Dispose();
-                //SQLConn.conn.Close();
-            }
-
-
-
-            //using (SqlDataAdapter da = new SqlDataAdapter("SELECT name FROM sys.databases ORDER BY name", connection))
-            //{
-            //    DataTable dt = new DataTable();
-            //    da.Fill(dt);
-            //    cbDBName.DisplayMember = "name";
-            //    cbDBName.DataSource = dt;
-            //    connection.Close();
-            //}
         }
     }
 }

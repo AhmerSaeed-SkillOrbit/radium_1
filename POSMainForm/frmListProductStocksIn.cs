@@ -40,6 +40,7 @@ namespace POSMainForm
                     lblPrice.Text = Strings.FormatNumber(SQLConn.dr[2]).ToString();
                     lblCostPrice.Text = SQLConn.dr[3].ToString();
                     lblCurrentStocks.Text = SQLConn.dr[4].ToString();
+                    cbProductUnit.Text = SQLConn.dr[5].ToString();
                 }
             }
             catch (Exception ex)

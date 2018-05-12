@@ -314,7 +314,7 @@
             this.button4.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
             this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Myriad Hebrew", 11.25F, System.Drawing.FontStyle.Italic);
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic);
             this.button4.Location = new System.Drawing.Point(550, 17);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 63);
@@ -331,7 +331,7 @@
             this.button3.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Myriad Hebrew", 11.25F, System.Drawing.FontStyle.Italic);
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic);
             this.button3.Location = new System.Drawing.Point(469, 17);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 63);

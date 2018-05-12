@@ -33,6 +33,8 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbProductUnit = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.lblCostPrice = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
@@ -50,8 +52,6 @@
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.cbProductUnit = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.GroupBox1.SuspendLayout();
@@ -115,6 +115,26 @@
             this.GroupBox1.TabIndex = 13;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Stock-In Information";
+            // 
+            // cbProductUnit
+            // 
+            this.cbProductUnit.Enabled = false;
+            this.cbProductUnit.FormattingEnabled = true;
+            this.cbProductUnit.Items.AddRange(new object[] {
+            "Select Product"});
+            this.cbProductUnit.Location = new System.Drawing.Point(357, 155);
+            this.cbProductUnit.Name = "cbProductUnit";
+            this.cbProductUnit.Size = new System.Drawing.Size(134, 23);
+            this.cbProductUnit.TabIndex = 15;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(258, 155);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(80, 15);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "Product Unit :";
             // 
             // lblCostPrice
             // 
@@ -284,25 +304,6 @@
             this.button3.Text = "&Save";
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // cbProductUnit
-            // 
-            this.cbProductUnit.FormattingEnabled = true;
-            this.cbProductUnit.Items.AddRange(new object[] {
-            "Select Product"});
-            this.cbProductUnit.Location = new System.Drawing.Point(357, 155);
-            this.cbProductUnit.Name = "cbProductUnit";
-            this.cbProductUnit.Size = new System.Drawing.Size(134, 23);
-            this.cbProductUnit.TabIndex = 15;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(258, 155);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(80, 15);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Product Unit :";
             // 
             // frmListProductStocksIn
             // 

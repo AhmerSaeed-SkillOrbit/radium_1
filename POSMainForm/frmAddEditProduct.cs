@@ -56,7 +56,7 @@ namespace POSMainForm
         {
             try
             {
-                //PopulateProductUnitComboBox();
+                PopulateProductUnitComboBox();
 
                 SQLConn.sqL = "SELECT pu.UnitName as UnitName, pu.Id as ProductUnitId, ProductNo, ProductCode, P.Description, Barcode, P.CategoryNo, CategoryName,costPrice, UnitPrice, StocksOnHand, ReorderLevel FROM Product as P LEFT JOIN Category as C ON P.CategoryNo = C.CategoryNo LEFT JOIN productunit pu ON pu.Id = P.ProductUnitId WHERE ProductNo = '" + productID + "'";
                 SQLConn.ConnDB();

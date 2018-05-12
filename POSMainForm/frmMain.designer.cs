@@ -198,7 +198,7 @@
             this.btnimport.FlatAppearance.BorderSize = 0;
             this.btnimport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Gold;
             this.btnimport.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnimport.Location = new System.Drawing.Point(466, 258);
+            this.btnimport.Location = new System.Drawing.Point(466, 261);
             this.btnimport.Name = "btnimport";
             this.btnimport.Size = new System.Drawing.Size(83, 78);
             this.btnimport.TabIndex = 12;

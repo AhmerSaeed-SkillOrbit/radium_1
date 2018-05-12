@@ -148,14 +148,14 @@ namespace POSMainForm
                         {
                             //Console.WriteLine();
                             //Console.WriteLine("ProductCode: "+ dr[0]);
-                            //Console.WriteLine("Description: " + dr[1]);
+                            Console.WriteLine("Description: " + dr[1]);
                             //Console.WriteLine("Barcode: "+ dr[2]);
                             //Console.WriteLine("UnitPrice: "+ dr[3]);
                             //Console.WriteLine("StocksOnHand: "+ dr[4]);
                             //Console.WriteLine("ReorderLevel: "+ dr[5]);
-                            //Console.WriteLine("CategoryNo: "+ dr[6]);
-                            //Console.WriteLine("costPrice: "+ dr[7]);
-                            //Console.WriteLine();
+                            Console.WriteLine("CategoryNo: ", dr[6]);
+                            Console.WriteLine("costPrice: ", dr[7]);
+                            Console.WriteLine("Test Prodcut", dr[8]);
 
                             //checking if product is exist or not 
                             //if exist do not insert it again 

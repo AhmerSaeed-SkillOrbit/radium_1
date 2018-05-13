@@ -460,7 +460,7 @@ namespace POSMainForm
             //offset = offset + (int)FontHeight;
 
             //
-            Image img = System.Drawing.Image.FromFile("E:\\GitHub-Clone\\radium_1\\POSMainForm\\Resources\\asaa.jpg");
+            Image img = System.Drawing.Image.FromFile("E:\\GitHub-Clone\\radium_1\\POSMainForm\\Resources\\logo_2_1.jpg");
             Point loc = new Point(110,5);
             e.Graphics.DrawImage(img, loc);
 

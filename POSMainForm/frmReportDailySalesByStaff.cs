@@ -41,8 +41,8 @@ namespace POSMainForm
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.da = new MySqlDataAdapter(SQLConn.cmd);
 
-                this.dataSet1.DailyInv.Clear();
-                SQLConn.da.Fill(this.dataSet1.DailyInv);
+                this.dataSet2.DataTable2.Clear();
+                SQLConn.da.Fill(this.dataSet2.DataTable2);
 
                 this.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
                 this.reportViewer1.ZoomPercent = 90;
@@ -59,6 +59,12 @@ namespace POSMainForm
         }
 
         private void frmReportDailySalesByStaff_Load_1(object sender, EventArgs e)
+        {
+
+            this.reportViewer2.RefreshReport();
+        }
+
+        private void reportViewer2_Load(object sender, EventArgs e)
         {
 
         }

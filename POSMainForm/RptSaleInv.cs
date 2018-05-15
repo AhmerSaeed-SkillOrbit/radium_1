@@ -39,8 +39,8 @@ namespace POSMainForm
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);  
                 SQLConn.da = new MySqlDataAdapter(SQLConn.cmd);
 
-                this.DataSet1.DataTable1.Clear();
-                SQLConn.da.Fill(this.DataSet1.DataTable1);
+                //this.DataSet1.DataTable1.Clear();
+                //SQLConn.da.Fill(this.DataSet1.DataTable1);
 
                 DataTable dt = new DataTable();
                 SQLConn.da.Fill(dt);

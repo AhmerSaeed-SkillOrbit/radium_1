@@ -142,6 +142,7 @@ E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.e
 E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.application
 E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.exe
 E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.pdb
+E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.pdb
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -150,7 +151,6 @@ E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.exe.config
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.exe.manifest
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.application
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.exe
-E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.pdb
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\Microsoft.SqlServer.Types.dll
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\EnvDTE.dll
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll

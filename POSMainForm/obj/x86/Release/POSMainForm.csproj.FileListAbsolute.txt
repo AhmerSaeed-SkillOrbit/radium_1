@@ -44,3 +44,38 @@ E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Release\POSMainForm
 E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Release\POSMainForm.pdb
 E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Release\POSMainForm.csprojResolveAssemblyReference.cache
 E:\projects\SindhSweets Software\POSMain\POSMainForm\bin\Release\Microsoft.PointOfService.dll
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.csprojResolveAssemblyReference.cache
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.csproj.ResolveComReference.cache
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmAddEditCategory.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmAddEditProduct.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmDatabaseConfig.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmEnterPassword.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmItemFilter.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmLogin.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmPOS1.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmReportDailySalesByStaff.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmReportFilterDailySales.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmListCategory.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmListProduct.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmListProductStocksIn.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmListStaff.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmAddEditStaff.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmMain.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmPayment.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmReportDailSalesByInvoice.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmReportFilterStocks.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmReportStocksIn.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmReportStocksOut.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmSale.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmSaleReturn.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmSelectCategory.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.frmSystemSetting.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.FrmViewSales.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.Properties.Resources.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.RptDailyInv.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.RptSaleInv.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.TestWinForm.resources
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.csproj.GenerateResource.Cache
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.csproj.CoreCompileInputs.cache
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.exe
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Release\POSMainForm.pdb

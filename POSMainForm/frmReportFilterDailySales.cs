@@ -43,16 +43,17 @@ namespace POSMainForm
 
             if (rbUser.Checked == true)
             {
+                //have to work here
                 //Interaction.MsgBox("Message us on our facebook page. https://www.facebook.com/CyberVSS");
                 frmReportDailySalesByStaff rbs = new frmReportDailySalesByStaff(DateTimePicker1.Value);
+
+                //RptSaleInv rbs = new RptSaleInv(DateTimePicker1.Value);
                 rbs.Show();
             }
             else
             {
                 RptDailyInv rd = new RptDailyInv(DateTimePicker1.Value);
                 rd.Show();
-                //frmReportDailSalesByInvoice R = new frmReportDailSalesByInvoice(DateTimePicker1.Value);
-                //R.Show();
             }
 
         }

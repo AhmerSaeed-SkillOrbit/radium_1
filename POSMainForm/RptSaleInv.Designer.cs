@@ -29,31 +29,36 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DataSet1 = new POSMainForm.DataSet1();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
+            this.dataSet2 = new POSMainForm.DataSet2();
+            this.dataSet2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet2BindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DataSet1;
-            this.DataTable1BindingSource.CurrentChanged += new System.EventHandler(this.DataTable1BindingSource_CurrentChanged);
-            // 
-            // DataSet1
-            // 
-            this.DataSet1.DataSetName = "DataSet1";
-            this.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "dsDailyInv";
+            reportDataSource1.Value = this.dataSet2BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POSMainForm.rptDailyInv.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(786, 523);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // dataSet2
+            // 
+            this.dataSet2.DataSetName = "DataSet2";
+            this.dataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dataSet2BindingSource
+            // 
+            this.dataSet2BindingSource.DataSource = this.dataSet2;
+            this.dataSet2BindingSource.Position = 0;
             // 
             // RptSaleInv
             // 
@@ -64,17 +69,15 @@
             this.Name = "RptSaleInv";
             this.Text = "RptSaleInv";
             this.Load += new System.EventHandler(this.RptSaleInv_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSet2BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.BindingSource DataTable1BindingSource;
-        private DataSet1 DataSet1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-
+        private System.Windows.Forms.BindingSource dataSet2BindingSource;
+        private DataSet2 dataSet2;
     }
 }

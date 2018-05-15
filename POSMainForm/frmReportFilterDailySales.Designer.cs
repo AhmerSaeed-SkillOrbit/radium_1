@@ -79,7 +79,6 @@
             this.rbUser.TabStop = true;
             this.rbUser.Text = "User-Wise";
             this.rbUser.UseVisualStyleBackColor = true;
-            this.rbUser.Visible = false;
             this.rbUser.CheckedChanged += new System.EventHandler(this.rbUser_CheckedChanged);
             // 
             // DateTimePicker1

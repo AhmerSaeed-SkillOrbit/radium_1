@@ -42,10 +42,10 @@ namespace POSMainForm
 
 			try {
 				DBNameMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Name", "posisdb_csharp");
-				ServerMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_IP", "192.168.10.4");
+				ServerMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_IP", "localhost");
 				PortMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Port", "8080");
-				UserNameMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_User", "pos_client");
-				PwdMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Password", "pos_client");
+				UserNameMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_User", "root");
+				PwdMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Password", "");
 			} catch {
 				Interaction.MsgBox("System registry was not established, you can set/save " + "these settings by pressing F1", MsgBoxStyle.Information);
 			}

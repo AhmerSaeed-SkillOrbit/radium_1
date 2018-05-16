@@ -197,3 +197,4 @@ E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.exe.manifest
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.application
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.exe
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.pdb
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.Form1.resources

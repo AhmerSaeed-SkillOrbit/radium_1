@@ -2,9 +2,11 @@
 {
 }
 
-namespace POSMainForm {
-    
-    
-    public partial class DataSet1 {
+namespace POSMainForm
+{
+
+
+    public partial class DataSet1
+    {
     }
 }

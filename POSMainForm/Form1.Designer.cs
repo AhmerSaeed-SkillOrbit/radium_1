@@ -30,38 +30,34 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataSet2 = new POSMainForm.DataSet2();
             this.DataTable2BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet2)).BeginInit();
+            this.DataSet2 = new POSMainForm.DataSet2();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable2BindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet2)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // DataTable2BindingSource
             // 
-            reportDataSource1.Name = "DataSet2";
-            reportDataSource1.Value = this.DataTable2BindingSource;
-            reportDataSource2.Name = "DataSet1";
-            reportDataSource2.Value = this.DataTable2BindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POSMainForm.Report3.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(1, 2);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 459);
-            this.reportViewer1.TabIndex = 0;
+            this.DataTable2BindingSource.DataMember = "DataTable2";
+            this.DataTable2BindingSource.DataSource = this.DataSet2;
             // 
             // DataSet2
             // 
             this.DataSet2.DataSetName = "DataSet2";
             this.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // DataTable2BindingSource
+            // reportViewer1
             // 
-            this.DataTable2BindingSource.DataMember = "DataTable2";
-            this.DataTable2BindingSource.DataSource = this.DataSet2;
+            reportDataSource1.Name = "DataSet2";
+            reportDataSource1.Value = this.DataTable2BindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POSMainForm.Report4.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(1, 2);
+            this.reportViewer1.Name = "reportViewer1";
+            this.reportViewer1.ServerReport.BearerToken = null;
+            this.reportViewer1.Size = new System.Drawing.Size(800, 459);
+            this.reportViewer1.TabIndex = 0;
             // 
             // RptSaleByStaff
             // 
@@ -72,8 +68,8 @@
             this.Name = "RptSaleByStaff";
             this.Text = "Report Sale By Staff";
             this.Load += new System.EventHandler(this.RptSaleByStaff_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataTable2BindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet2)).EndInit();
             this.ResumeLayout(false);
 
         }

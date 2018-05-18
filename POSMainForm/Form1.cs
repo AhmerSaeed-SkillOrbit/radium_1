@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using Microsoft.VisualBasic;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,7 +33,7 @@ namespace POSMainForm
         {
             try
             {
-                SQLConn.sqL = "SELECT `s.Username` as `Staff`, `TDate`, `TotalAmount`, `Customer` FROM `transactions` INNER JOIN Staff s ON s.StaffID = `transactions`.StaffID WHERE TDate = '" + ReportDate.ToString("MM/dd/yyyy") + "' Order By S.StaffID asc";
+                SQLConn.sqL = "SELECT `Staff`.`Username` as `Staff`, `TDate`, `TotalAmount`, `Customer` FROM `transactions` INNER JOIN Staff ON Staff.StaffID = `transactions`.StaffID WHERE TDate = '" + ReportDate.ToString("MM/dd/yyyy") + "' Order By Staff.StaffID asc";
 
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);

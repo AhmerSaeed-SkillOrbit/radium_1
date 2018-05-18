@@ -33,8 +33,12 @@
             this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.DataSet3 = new POSMainForm.DataSet3();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.dsReportC = new POSMainForm.dsReportC();
+            this.DailySalesByInvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsReportC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DailySalesByInvoiceBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // DataTable1BindingSource
@@ -49,15 +53,25 @@
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "DataSet3";
+            reportDataSource1.Name = "DataSet1";
             reportDataSource1.Value = this.DataTable1BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POSMainForm.Report1.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POSMainForm.Report2.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(3, 3);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(849, 410);
             this.reportViewer1.TabIndex = 0;
+            // 
+            // dsReportC
+            // 
+            this.dsReportC.DataSetName = "dsReportC";
+            this.dsReportC.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // DailySalesByInvoiceBindingSource
+            // 
+            this.DailySalesByInvoiceBindingSource.DataMember = "DailySalesByInvoice";
+            this.DailySalesByInvoiceBindingSource.DataSource = this.dsReportC;
             // 
             // Form1
             // 
@@ -70,6 +84,8 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataSet3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dsReportC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DailySalesByInvoiceBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -79,5 +95,7 @@
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource DataTable1BindingSource;
         private DataSet3 DataSet3;
+        private System.Windows.Forms.BindingSource DailySalesByInvoiceBindingSource;
+        private dsReportC dsReportC;
     }
 }

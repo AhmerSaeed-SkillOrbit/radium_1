@@ -275,9 +275,6 @@ namespace POSMainForm
             }
         }
 
-
-
-
         private void SaveSale()
         {
             try

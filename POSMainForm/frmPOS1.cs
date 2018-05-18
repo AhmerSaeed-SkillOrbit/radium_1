@@ -56,16 +56,16 @@ namespace POSMainForm
             try
             {
                 GetCatFilter();
-                SQLConn.sqL = "SELECT `StaffID`, `Firstname`, `Username`, `Role` FROM `staff` where StaffID="+_id+" ";
+                SQLConn.sqL = "SELECT `StaffID`, `Firstname`, `Username`, `Role` FROM `staff` where StaffID=" + _id + " ";
                 dt = d.GetData(SQLConn.sqL);
                 txtPosition.Text = dt.Rows[0][3].ToString();
                 txtName.Text = dt.Rows[0][2].ToString();
             }
             catch (Exception)
             {
-                
+
             }
-            
+
         }
 
         void GetCatFilter()
@@ -138,7 +138,7 @@ namespace POSMainForm
             }
 
         }
-        
+
         private void txtProductUnit_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -158,7 +158,7 @@ namespace POSMainForm
                 SQLConn.sqL = "SELECT `ProductNo`, `ProductCode`,`UnitPrice`, `StocksOnHand`, `ReorderLevel`, pu.UnitName as UnitName, pu.Id as ProductUnitId FROM `Product` LEFT JOIN productunit pu ON pu.Id = Product.ProductUnitId WHERE ProductCode = '" + txtProductName.Text + "' or barcode = '" + txtProductName.Text + "' ";
                 dt = d.GetData(SQLConn.sqL);
 
-                if(dt.Rows.Count > 0)
+                if (dt.Rows.Count > 0)
                 {
                     itemId = Int32.Parse(dt.Rows[0][0].ToString());
                     currentItemName = dt.Rows[0][1].ToString();
@@ -173,7 +173,7 @@ namespace POSMainForm
                     }
                 }
                 txtProductUnit.Text = price.ToString();
-                cbProductUnit.Text = itemUnit;
+                labelProductUnit.Text = itemUnit;
 
 
             }
@@ -210,7 +210,7 @@ namespace POSMainForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            reg = new System.Text.RegularExpressions.Regex ("[0-9]");
+            reg = new System.Text.RegularExpressions.Regex("[0-9]");
 
             if (txtProductName.Text == string.Empty)
             {
@@ -238,26 +238,28 @@ namespace POSMainForm
             }
             else if (!reg.IsMatch(txtProductUnit.Text))
             {
+
                 MessageBox.Show("Please write only numeric amount.");
                 return;
             }
-                       
+
             price = decimal.Parse(txtProductUnit.Text);
-            quantity  = decimal.Parse(txtQty.Text);
+            quantity = decimal.Parse(txtQty.Text);
             total = price * quantity;
 
             if (globalStockOnHand != 0)
             {
-                dataGridView1.Rows.Add(itemId, currentItemName, itemUnit, price, quantity, total);
+                dataGridView1.Rows.Add(itemId, currentItemName, price, quantity, itemUnit, total);
             }
-            else {
+            else
+            {
                 MessageBox.Show("This Product stock is 0 in quantity !!! ");
                 txtProductName.Text = "";
                 txtProductUnit.Text = "";
                 txtQty.Text = "";
                 return;
             }
-            
+
 
 
             //txtItemQty.Text = dataGridView1.Rows.Count.ToString();
@@ -272,19 +274,19 @@ namespace POSMainForm
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.ColumnIndex == 4)
+            if (e.ColumnIndex == 4)
             {
 
             }
             else if (e.ColumnIndex == 5)
             {
-                decimal subtract = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                decimal subtract = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
                 strTotalAmt = Decimal.Parse(txtTotal.Text) - subtract;
                 grand_total -= subtract;
-                
+
                 txtTotal.Text = strTotalAmt.ToString();
                 txtReceive.Text = strTotalAmt.ToString();
-                
+
                 dataGridView1.Rows.RemoveAt(e.RowIndex);
 
                 strTotalAmt = 0;
@@ -315,25 +317,21 @@ namespace POSMainForm
             {
                 SaveSale();
 
-                Clear(); 
+                Clear();
 
             }
             else
             {
                 MessageBox.Show("Please enter items...");
             }
-            
-            
-            
+
         }
-
-
 
         private void SaveSale()
         {
             try
             {
-                SQLConn.sqL = @"INSERT INTO transactions(TDate,Customer, StaffID,TotalAmount,discount,paidAmount) values ('" + dtpDate.Text + "','Cash'," + _id + " ," + txtTotal.Text + ","+txtDisc.Text+","+txtReceive.Text+")";
+                SQLConn.sqL = @"INSERT INTO transactions(TDate,Customer, StaffID,TotalAmount,discount,paidAmount) values ('" + dtpDate.Text + "','Cash'," + _id + " ," + txtTotal.Text + "," + txtDisc.Text + "," + txtReceive.Text + ")";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.cmd.ExecuteNonQuery();
@@ -411,7 +409,7 @@ namespace POSMainForm
             PrintDialog printDialog = new PrintDialog();
 
             PrintDocument printDocument = new PrintDocument();
-        
+
             printDialog.Document = printDocument;
 
             printDocument.PrintPage += new PrintPageEventHandler(printDocument_PrintPage);
@@ -459,9 +457,11 @@ namespace POSMainForm
             //graphic.DrawString(StoreName, new Font("Canterbury", 30, FontStyle.Bold), new SolidBrush(Color.Black), new PageSettings().Margins.Left + (int)FontHeight + 20, starty, sf);
             //offset = offset + (int)FontHeight;
 
-            //
-            Image img = System.Drawing.Image.FromFile("E:\\GitHub-Clone\\radium_1\\POSMainForm\\Resources\\logo_2_1.jpg");
-            Point loc = new Point(110,5);
+
+            //Image img = System.Drawing.Image.FromFile("E:\\GitHub-Clone\\radium_1\\POSMainForm\\Resources\\logo_2_1.jpg");
+
+            Image img = System.Drawing.Image.FromFile(System.Configuration.ConfigurationSettings.AppSettings["LogoImgSrc"]);
+            Point loc = new Point(110, 5);
             e.Graphics.DrawImage(img, loc);
 
             graphic.DrawString(StoreAddress, new Font("Century Gothic", 8, FontStyle.Regular), new SolidBrush(Color.Black), new PageSettings().Margins.Left + (int)FontHeight + 35, starty + 10, sf);
@@ -476,7 +476,7 @@ namespace POSMainForm
             //draw rectangle + write text in it
             Font stringFont = new Font("Canterbury", 16);
             SizeF rectSize = graphic.MeasureString(Text, stringFont);
-            
+
             //graphic.FillRectangle(Brushes.Blue, 10, 80, rectSize.Width + 180, rectSize.Height);
 
             //graphic.DrawString("Sales Receipt", new Font("Century Gothic", 10, FontStyle.Bold), new SolidBrush(Color.White), new PageSettings().Margins.Left + (int)FontHeight - 35, starty + offset + 25);
@@ -489,7 +489,7 @@ namespace POSMainForm
             graphic.DrawString("Date: " + System.DateTime.Now.ToString(), new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset + 12);
             offset = offset + (int)FontHeight + 2;
 
-            graphic.DrawString("Tran#: "+ invId, new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset + 17);
+            graphic.DrawString("Tran#: " + invId, new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset + 17);
             offset = offset + (int)FontHeight + 2;
 
             //graphic.DrawString("Customer: " + CustomerName + "   ", new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset + 37);
@@ -498,7 +498,7 @@ namespace POSMainForm
 
 
             //draw rectangle + write text in it
-           // graphic.FillRectangle(Brushes.Blue, 10, 165, rectSize.Width + 180, rectSize.Height);
+            // graphic.FillRectangle(Brushes.Blue, 10, 165, rectSize.Width + 180, rectSize.Height);
             graphic.DrawString("Item Description", new Font("Century Gothic", 10, FontStyle.Bold), new SolidBrush(Color.Black), new PageSettings().Margins.Left + (int)FontHeight - 25, starty + offset + 20);
             offset = offset + (int)FontHeight + 10;
 
@@ -513,9 +513,10 @@ namespace POSMainForm
                 string ProductQty = dataGridView1.Rows[i].Cells[3].Value.ToString();
 
                 string ProductUnitPrice = dataGridView1.Rows[i].Cells[2].Value.ToString();
-                string ProdcutTotalPrice = dataGridView1.Rows[i].Cells[4].Value.ToString();
+                string ProdcutTotalPrice = dataGridView1.Rows[i].Cells[5].Value.ToString();
+                string ProductUnit = dataGridView1.Rows[i].Cells[4].Value.ToString();
 
-                string ProductPriceLine = "Rs. " + ProductUnitPrice + "     " + "  Qty: " + ProductQty;
+                string ProductPriceLine = "Rs. " + ProductUnitPrice + "     " + "  Qty: " + ProductQty + " " + ProductUnit;
 
                 offset = offset + (int)FontHeight + 5;
                 graphic.DrawString(ProductName, new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
@@ -525,17 +526,17 @@ namespace POSMainForm
 
             graphic.DrawString("_________________________________________", new Font("Century Gothic", 10, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
             offset = offset + 20;
-            
-            
-                graphic.DrawString("Total Amount".PadRight(30) + String.Format("Rs. "+txtTotal.Text), new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
-                offset = offset + (int)FontHeight + 5;
-                graphic.DrawString("Discount".PadRight(30) + "Rs. " + txtDisc.Text.PadRight(30), new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
-                offset = offset + (int)FontHeight + 5;
-                graphic.DrawString("Net Total".PadRight(30) + String.Format("Rs."+txtReceive.Text), new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
-                offset = offset + (int)FontHeight + 5;
-                graphic.DrawString("Change".PadRight(30) + String.Format("Rs."+txtReturn.Text), new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
-                offset = offset + (int)FontHeight + 5;
-            
+
+
+            graphic.DrawString("Total Amount".PadRight(30) + String.Format("Rs. " + txtTotal.Text), new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
+            offset = offset + (int)FontHeight + 5;
+            graphic.DrawString("Discount".PadRight(30) + "Rs. " + txtDisc.Text.PadRight(30), new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
+            offset = offset + (int)FontHeight + 5;
+            graphic.DrawString("Net Total".PadRight(30) + String.Format("Rs." + txtReceive.Text), new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
+            offset = offset + (int)FontHeight + 5;
+            graphic.DrawString("Change".PadRight(30) + String.Format("Rs." + txtReturn.Text), new Font("Century Gothic", 8, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
+            offset = offset + (int)FontHeight + 5;
+
 
             graphic.DrawString("_________________________________________", new Font("Century Gothic", 10, FontStyle.Bold), new SolidBrush(Color.Black), startx, starty + offset);
             offset = offset + (int)FontHeight + 5;
@@ -550,7 +551,7 @@ namespace POSMainForm
             //offset = offset + (int)FontHeight + 2;
             //graphic.DrawString("", new Font("Century Gothic", 7, FontStyle.Regular), new SolidBrush(Color.Black), startx, starty + offset);
 
-            
+
         }
 
 
@@ -570,17 +571,17 @@ namespace POSMainForm
             {
                 MessageBox.Show("Discount should be in numeric format.");
                 txtDisc.Focus();
-                
+
             }
         }
 
 
-        decimal strTotalAmt,strDisc,strPaid;
+        decimal strTotalAmt, strDisc, strPaid;
 
 
         private void txtDisc_KeyDown(object sender, KeyEventArgs e)
         {
-            
+
 
         }
 
@@ -593,17 +594,17 @@ namespace POSMainForm
 
         private void frmPOS1_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
         }
 
         private void txtProductName_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtPaid_TextChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         decimal recAmt;
@@ -614,10 +615,10 @@ namespace POSMainForm
                 recAmt = decimal.Parse(paidamount.Text);
                 txtReceive.Text = recAmt.ToString();
 
-                    strTotalAmt = Decimal.Parse(txtTotal.Text);
-                    strPaid = strTotalAmt - strDisc; // t-bill amount
-                    txtReturn.Text = Math.Round((recAmt - strPaid), 2).ToString();
-                
+                strTotalAmt = Decimal.Parse(txtTotal.Text);
+                strPaid = strTotalAmt - strDisc; // t-bill amount
+                txtReturn.Text = Math.Round((recAmt - strPaid), 2).ToString();
+
             }
             strTotalAmt = 0;
             strPaid = 0;
@@ -633,7 +634,7 @@ namespace POSMainForm
                 {
                     this.Close();
 
-                    frmMain frm = new frmMain(txtName.Text,_id);
+                    frmMain frm = new frmMain(txtName.Text, _id);
                     frm.Show();
                 }
                 else
@@ -653,7 +654,7 @@ namespace POSMainForm
             {
                 for (int i = 0; i < dataGridView1.Rows.Count; i++)
                 {
-                    grand_total += Decimal.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
+                    grand_total += Decimal.Parse(dataGridView1.Rows[i].Cells[5].Value.ToString());
                 }
 
                 txtTotal.Text = grand_total.ToString();
@@ -715,7 +716,7 @@ namespace POSMainForm
 
         private void dtpDate_ValueChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void txtPosition_TextChanged(object sender, EventArgs e)
@@ -729,6 +730,16 @@ namespace POSMainForm
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void txtQty_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelProductUnit_Click(object sender, EventArgs e)
         {
 
         }
@@ -747,21 +758,21 @@ namespace POSMainForm
         {
             dataGridView1.Rows.Clear();
             lblInvNo.Text = "Inv No: " + rtrnInv;
-            SQLConn.sqL = "SELECT `ProductNo`,`ItemName`, `ItemPrice`, `Quantity`,`InvoiceNo` FROM `transactiondetails` WHERE InvoiceNo = "+rtrnInv+"  ";
+            SQLConn.sqL = "SELECT `ProductNo`,`ItemName`, `ItemPrice`, `Quantity`,`InvoiceNo` FROM `transactiondetails` WHERE InvoiceNo = " + rtrnInv + "  ";
             DB d = new DB();
             DataTable dt = new DataTable();
             dt = d.GetData(SQLConn.sqL);
 
             for (int i = 0; i < dt.Rows.Count; i++)
             {
-                itemId =    Int32.Parse(dt.Rows[i]["ProductNo"].ToString());
+                itemId = Int32.Parse(dt.Rows[i]["ProductNo"].ToString());
                 itemName = dt.Rows[i]["ItemName"].ToString();
                 price = Int32.Parse(dt.Rows[i]["ItemPrice"].ToString());
                 quantity = Int32.Parse(dt.Rows[i]["Quantity"].ToString());
                 total = price * quantity;
                 dataGridView1.Rows.Add(itemId, itemName, price, quantity, total);
             }
-            
+
         }
     }
 }

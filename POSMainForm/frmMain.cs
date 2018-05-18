@@ -18,6 +18,9 @@ namespace POSMainForm
 
             Username = username;
             StaffID = staffID;
+
+            Console.WriteLine("Checking Config File");
+            Console.WriteLine(System.Configuration.ConfigurationSettings.AppSettings["hello"]);
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -318,6 +321,11 @@ namespace POSMainForm
         }
 
         private void lbluser_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
         {
 
         }

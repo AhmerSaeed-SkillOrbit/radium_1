@@ -41,12 +41,21 @@ namespace POSMainForm
 			string AppName = Application.ProductName;
 
 			try {
-				DBNameMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Name", "posisdb_csharp");
-				ServerMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_IP", "localhost");
-				PortMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Port", "8080");
-				UserNameMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_User", "root");
-				PwdMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Password", "");
-			} catch {
+
+				//DBNameMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Name", "posisdb_csharp");
+				//ServerMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_IP", "localhost");
+				//PortMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Port", "8080");
+				//UserNameMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_User", "root");
+				//PwdMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Password", "");
+
+                DBNameMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Name", System.Configuration.ConfigurationSettings.AppSettings["DBName"]);
+                ServerMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_IP", System.Configuration.ConfigurationSettings.AppSettings["DBHost"]);
+                PortMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Port", System.Configuration.ConfigurationSettings.AppSettings["DBPort"]);
+                UserNameMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_User", System.Configuration.ConfigurationSettings.AppSettings["DBUser"]);
+                PwdMySQL = Interaction.GetSetting(AppName, "DBSection", "DB_Password", System.Configuration.ConfigurationSettings.AppSettings["DBPwd"]);
+                
+
+            } catch {
 				Interaction.MsgBox("System registry was not established, you can set/save " + "these settings by pressing F1", MsgBoxStyle.Information);
 			}
 

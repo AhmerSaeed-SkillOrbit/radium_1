@@ -45,11 +45,10 @@ namespace POSMainForm
             {
                 //have to work here
                 //Interaction.MsgBox("Message us on our facebook page. https://www.facebook.com/CyberVSS");
-                //frmReportDailySalesByStaff rbs = new frmReportDailySalesByStaff(DateTimePicker1.Value);
 
-                //RptSaleInv rbs = new RptSaleInv(DateTimePicker1.Value);
+                RptSaleByStaff rbs = new RptSaleByStaff(DateTimePicker1.Value);
 
-                Form1 rbs = new Form1();
+                //Form2 rbs = new Form2();
                 rbs.Show();
             }
             else

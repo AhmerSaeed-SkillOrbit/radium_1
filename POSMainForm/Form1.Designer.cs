@@ -1,6 +1,6 @@
 ﻿namespace POSMainForm
 {
-    partial class Form1
+    partial class RptSaleByStaff
     {
         /// <summary>
         /// Required designer variable.
@@ -30,62 +30,50 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.DataTable1BindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.DataSet3 = new POSMainForm.DataSet3();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dsReportC = new POSMainForm.dsReportC();
-            this.DailySalesByInvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsReportC)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DailySalesByInvoiceBindingSource)).BeginInit();
+            this.DataSet2 = new POSMainForm.DataSet2();
+            this.DataTable2BindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable2BindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // DataTable1BindingSource
-            // 
-            this.DataTable1BindingSource.DataMember = "DataTable1";
-            this.DataTable1BindingSource.DataSource = this.DataSet3;
-            // 
-            // DataSet3
-            // 
-            this.DataSet3.DataSetName = "DataSet3";
-            this.DataSet3.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.DataTable1BindingSource;
+            reportDataSource1.Name = "DataSet2";
+            reportDataSource1.Value = this.DataTable2BindingSource;
+            reportDataSource2.Name = "DataSet1";
+            reportDataSource2.Value = this.DataTable2BindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POSMainForm.Report2.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(3, 3);
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "POSMainForm.Report3.rdlc";
+            this.reportViewer1.Location = new System.Drawing.Point(1, 2);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(849, 410);
+            this.reportViewer1.Size = new System.Drawing.Size(800, 459);
             this.reportViewer1.TabIndex = 0;
             // 
-            // dsReportC
+            // DataSet2
             // 
-            this.dsReportC.DataSetName = "dsReportC";
-            this.dsReportC.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.DataSet2.DataSetName = "DataSet2";
+            this.DataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // DailySalesByInvoiceBindingSource
+            // DataTable2BindingSource
             // 
-            this.DailySalesByInvoiceBindingSource.DataMember = "DailySalesByInvoice";
-            this.DailySalesByInvoiceBindingSource.DataSource = this.dsReportC;
+            this.DataTable2BindingSource.DataMember = "DataTable2";
+            this.DataTable2BindingSource.DataSource = this.DataSet2;
             // 
-            // Form1
+            // RptSaleByStaff
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(864, 440);
+            this.ClientSize = new System.Drawing.Size(797, 457);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataTable1BindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dsReportC)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DailySalesByInvoiceBindingSource)).EndInit();
+            this.Name = "RptSaleByStaff";
+            this.Text = "Report Sale By Staff";
+            this.Load += new System.EventHandler(this.RptSaleByStaff_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataTable2BindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -93,9 +81,7 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource DataTable1BindingSource;
-        private DataSet3 DataSet3;
-        private System.Windows.Forms.BindingSource DailySalesByInvoiceBindingSource;
-        private dsReportC dsReportC;
+        private System.Windows.Forms.BindingSource DataTable2BindingSource;
+        private DataSet2 DataSet2;
     }
 }

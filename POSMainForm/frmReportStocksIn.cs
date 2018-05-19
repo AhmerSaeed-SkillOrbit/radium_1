@@ -36,6 +36,7 @@ namespace POSMainForm
             try
             {
                 SQLConn.sqL = "SELECT ProductCode, Description, SUM(Quantity) as Quantity, STR_TO_DATE(REPLACE(DateIn, '-', '/'), '%m/%d/%Y') as DateIn FROM Product as P, StockIn as S WHERE S.ProductNo = P.ProductNo AND STR_TO_DATE(REPLACE(DateIn, '-', '/'), '%m/%d/%Y') BETWEEN '" + StartDate.ToString("yyyy-MM-dd") + "' AND '" + EndDate.ToString("yyyy-MM-dd") + "' GROUP BY P.ProductNo, DateIN ORDER BY DateIn, Description";
+                //SQLConn.sqL = "SELECT ProductCode, Description, SUM(Quantity) as Quantity, STR_TO_DATE(REPLACE(DateIn, '-', '/'), '%m/%d/%Y') as DateIn FROM Product as P, StockIn as S INNER JOIN ProductUnit as pu  WHERE S.ProductNo = P.ProductNo AND STR_TO_DATE(REPLACE(DateIn, '-', '/'), '%m/%d/%Y') BETWEEN '" + StartDate.ToString("yyyy-MM-dd") + "' AND '" + EndDate.ToString("yyyy-MM-dd") + "' GROUP BY P.ProductNo, DateIN ORDER BY DateIn, Description";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.da = new MySqlDataAdapter(SQLConn.cmd);

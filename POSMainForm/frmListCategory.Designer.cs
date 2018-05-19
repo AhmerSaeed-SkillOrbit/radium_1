@@ -78,7 +78,7 @@
             this.btnClose.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Myriad Hebrew", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(252, 17);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 63);
@@ -95,7 +95,7 @@
             this.btnSearch.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
             this.btnSearch.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Myriad Hebrew", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearch.Location = new System.Drawing.Point(171, 17);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(75, 63);
@@ -127,6 +127,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(889, 65);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label1
             // 
@@ -177,7 +178,7 @@
             this.btnNew.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
             this.btnNew.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnNew.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNew.Font = new System.Drawing.Font("Myriad Hebrew", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.Location = new System.Drawing.Point(9, 17);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 63);
@@ -194,7 +195,7 @@
             this.btnUpdate.FlatAppearance.BorderColor = System.Drawing.SystemColors.Highlight;
             this.btnUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Highlight;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUpdate.Font = new System.Drawing.Font("Myriad Hebrew", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(90, 17);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 63);

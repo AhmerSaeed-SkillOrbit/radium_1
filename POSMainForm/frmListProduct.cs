@@ -25,7 +25,7 @@ namespace POSMainForm
         {
             try
             {
-                SQLConn.sqL = "SELECT pu.UnitName, pu.Id, ProductNo, ProductCOde, P.Description, Barcode,costPrice, UnitPrice, StocksOnHand, ReorderLevel, CategoryName FROM Product as P LEFT JOIN Category C ON P.CategoryNo = C.CategoryNo LEFT JOIN productunit pu ON pu.Id = P.ProductUnitId WHERE P.Barcode LIKE '" + strSearch + "%' or P.ProductCode LIKE '" + strSearch + "%' or C.CategoryName LIKE '" + strSearch + "%' ";
+                SQLConn.sqL = "SELECT pu.UnitName, pu.Id, ProductNo, ProductCOde, P.Description, Barcode,costPrice, UnitPrice, StocksOnHand, ReorderLevel, CategoryName FROM Product as P LEFT JOIN Category C ON P.CategoryNo = C.CategoryNo LEFT JOIN productunit pu ON pu.Id = P.ProductUnitId WHERE P.Barcode LIKE '" + strSearch + "%' or P.ProductCode LIKE '" + strSearch + "%' or C.CategoryName LIKE '" + strSearch + "%' order by ProductNo";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.dr = SQLConn.cmd.ExecuteReader();

@@ -26,7 +26,7 @@ namespace POSMainForm
         {
             try
             {
-                SQLConn.sqL = "SELECT * FROM CATEGORY WHERE CategoryName LIKE '" + strSearch + "%' ORDER By CategoryName";
+                SQLConn.sqL = "SELECT * FROM CATEGORY WHERE CategoryName LIKE '" + strSearch + "%' ORDER By CategoryNo";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.dr = SQLConn.cmd.ExecuteReader(CommandBehavior.CloseConnection);
@@ -118,6 +118,11 @@ namespace POSMainForm
         private void picClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

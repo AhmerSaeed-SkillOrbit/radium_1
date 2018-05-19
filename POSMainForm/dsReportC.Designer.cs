@@ -1082,8 +1082,6 @@ namespace POSMainForm {
             
             private global::System.Data.DataColumn columnQuantity;
             
-            private global::System.Data.DataColumn columnProduct_Unit;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public StocksInDataTable() {
@@ -1151,14 +1149,6 @@ namespace POSMainForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Product_UnitColumn {
-                get {
-                    return this.columnProduct_Unit;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1194,14 +1184,13 @@ namespace POSMainForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public StocksInRow AddStocksInRow(string ProductCode, string Description, System.DateTime DateIn, int Quantity, string Product_Unit) {
+            public StocksInRow AddStocksInRow(string ProductCode, string Description, System.DateTime DateIn, int Quantity) {
                 StocksInRow rowStocksInRow = ((StocksInRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ProductCode,
                         Description,
                         DateIn,
-                        Quantity,
-                        Product_Unit};
+                        Quantity};
                 rowStocksInRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStocksInRow);
                 return rowStocksInRow;
@@ -1228,7 +1217,6 @@ namespace POSMainForm {
                 this.columnDescription = base.Columns["Description"];
                 this.columnDateIn = base.Columns["DateIn"];
                 this.columnQuantity = base.Columns["Quantity"];
-                this.columnProduct_Unit = base.Columns["Product Unit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1242,8 +1230,6 @@ namespace POSMainForm {
                 base.Columns.Add(this.columnDateIn);
                 this.columnQuantity = new global::System.Data.DataColumn("Quantity", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnQuantity);
-                this.columnProduct_Unit = new global::System.Data.DataColumn("Product Unit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProduct_Unit);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1389,8 +1375,6 @@ namespace POSMainForm {
             
             private global::System.Data.DataColumn columnTotalAmount;
             
-            private global::System.Data.DataColumn columnProduct_Unit;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public StocksOutDataTable() {
@@ -1474,14 +1458,6 @@ namespace POSMainForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn Product_UnitColumn {
-                get {
-                    return this.columnProduct_Unit;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1517,7 +1493,7 @@ namespace POSMainForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public StocksOutRow AddStocksOutRow(string ProductCode, string Description, System.DateTime DateOut, int Quantity, double Price, double TotalAmount, string Product_Unit) {
+            public StocksOutRow AddStocksOutRow(string ProductCode, string Description, System.DateTime DateOut, int Quantity, double Price, double TotalAmount) {
                 StocksOutRow rowStocksOutRow = ((StocksOutRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ProductCode,
@@ -1525,8 +1501,7 @@ namespace POSMainForm {
                         DateOut,
                         Quantity,
                         Price,
-                        TotalAmount,
-                        Product_Unit};
+                        TotalAmount};
                 rowStocksOutRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowStocksOutRow);
                 return rowStocksOutRow;
@@ -1555,7 +1530,6 @@ namespace POSMainForm {
                 this.columnQuantity = base.Columns["Quantity"];
                 this.columnPrice = base.Columns["Price"];
                 this.columnTotalAmount = base.Columns["TotalAmount"];
-                this.columnProduct_Unit = base.Columns["Product Unit"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1573,8 +1547,6 @@ namespace POSMainForm {
                 base.Columns.Add(this.columnPrice);
                 this.columnTotalAmount = new global::System.Data.DataColumn("TotalAmount", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalAmount);
-                this.columnProduct_Unit = new global::System.Data.DataColumn("Product Unit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnProduct_Unit);
                 this.columnDateOut.Caption = "DateIn";
             }
             
@@ -2260,22 +2232,6 @@ namespace POSMainForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Product_Unit {
-                get {
-                    try {
-                        return ((string)(this[this.tableStocksIn.Product_UnitColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Product Unit\' in table \'StocksIn\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStocksIn.Product_UnitColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProductCodeNull() {
                 return this.IsNull(this.tableStocksIn.ProductCodeColumn);
             }
@@ -2320,18 +2276,6 @@ namespace POSMainForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetQuantityNull() {
                 this[this.tableStocksIn.QuantityColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsProduct_UnitNull() {
-                return this.IsNull(this.tableStocksIn.Product_UnitColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetProduct_UnitNull() {
-                this[this.tableStocksIn.Product_UnitColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2447,22 +2391,6 @@ namespace POSMainForm {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string Product_Unit {
-                get {
-                    try {
-                        return ((string)(this[this.tableStocksOut.Product_UnitColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Product Unit\' in table \'StocksOut\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableStocksOut.Product_UnitColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsProductCodeNull() {
                 return this.IsNull(this.tableStocksOut.ProductCodeColumn);
             }
@@ -2531,18 +2459,6 @@ namespace POSMainForm {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetTotalAmountNull() {
                 this[this.tableStocksOut.TotalAmountColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsProduct_UnitNull() {
-                return this.IsNull(this.tableStocksOut.Product_UnitColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetProduct_UnitNull() {
-                this[this.tableStocksOut.Product_UnitColumn] = global::System.Convert.DBNull;
             }
         }
         

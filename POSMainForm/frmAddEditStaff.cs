@@ -117,7 +117,10 @@ namespace POSMainForm
         {
             try
             {
-                SQLConn.sqL = "Update STAFF SET Lastname = '" + txtLastname.Text + "', Firstname = '" + txtFirstname.Text + "', MI = '" + txtMI.Text + "', Street= '" + txtStreet.Text + "', Barangay = '" + txtBarangay.Text + "', City = '" + txtCity.Text + "', Province = '" + txtProvince.Text + "', ContactNo = '" + txtContractNo.Text + "', Username ='" + txtUsername.Text + "', Role = '" + txtRole.Text + "', UPassword = '" + txtPassword.Text + "' WHERE StaffID = '" + LSStaffID + "'";
+                Console.WriteLine("Hashed Password");
+                var HashedPassword = GetHashedPassword(txtPassword.Text);
+
+                SQLConn.sqL = "Update STAFF SET Lastname = '" + txtLastname.Text + "', Firstname = '" + txtFirstname.Text + "', MI = '" + txtMI.Text + "', Street= '" + txtStreet.Text + "', Barangay = '" + txtBarangay.Text + "', City = '" + txtCity.Text + "', Province = '" + txtProvince.Text + "', ContactNo = '" + txtContractNo.Text + "', Username ='" + txtUsername.Text + "', Role = '" + txtRole.Text + "', UPassword = '" + HashedPassword + "' WHERE StaffID = '" + LSStaffID + "'";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.cmd.ExecuteNonQuery();

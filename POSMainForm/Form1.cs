@@ -1,5 +1,6 @@
 ﻿using Microsoft.Reporting.WinForms;
 using Microsoft.VisualBasic;
+using MySql.Data;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;

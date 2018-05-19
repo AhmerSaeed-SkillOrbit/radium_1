@@ -33,6 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ttl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,13 +84,6 @@
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cmbCat = new System.Windows.Forms.ComboBox();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ttl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -158,6 +158,62 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView1_RowsAdded);
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "ID";
+            this.Column4.MinimumWidth = 25;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            // 
+            // itemDesc
+            // 
+            this.itemDesc.FillWeight = 191.1401F;
+            this.itemDesc.HeaderText = "Item Description";
+            this.itemDesc.MaxInputLength = 3276;
+            this.itemDesc.Name = "itemDesc";
+            this.itemDesc.ReadOnly = true;
+            // 
+            // unitPrice
+            // 
+            this.unitPrice.FillWeight = 83.17947F;
+            this.unitPrice.HeaderText = "Unit Price";
+            this.unitPrice.Name = "unitPrice";
+            this.unitPrice.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 83.17947F;
+            this.Column1.HeaderText = "Quantity";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.FillWeight = 76.14214F;
+            this.Unit.HeaderText = "Unit";
+            this.Unit.MinimumWidth = 10;
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ttl
+            // 
+            this.ttl.FillWeight = 83.17947F;
+            this.ttl.HeaderText = "Total";
+            this.ttl.Name = "ttl";
+            this.ttl.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 83.17947F;
+            this.Column3.HeaderText = "Remove";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.Text = "Remove";
+            this.Column3.UseColumnTextForButtonValue = true;
             // 
             // label1
             // 
@@ -569,6 +625,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(759, 68);
             this.panel5.TabIndex = 3;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // labelProductUnit
             // 
@@ -688,62 +745,6 @@
             this.cmbCat.Visible = false;
             this.cmbCat.SelectedIndexChanged += new System.EventHandler(this.cmbCat_SelectedIndexChanged);
             this.cmbCat.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cmbCat_KeyDown);
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "ID";
-            this.Column4.MinimumWidth = 25;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Visible = false;
-            // 
-            // itemDesc
-            // 
-            this.itemDesc.FillWeight = 191.1401F;
-            this.itemDesc.HeaderText = "Item Description";
-            this.itemDesc.MaxInputLength = 3276;
-            this.itemDesc.Name = "itemDesc";
-            this.itemDesc.ReadOnly = true;
-            // 
-            // unitPrice
-            // 
-            this.unitPrice.FillWeight = 83.17947F;
-            this.unitPrice.HeaderText = "Unit Price";
-            this.unitPrice.Name = "unitPrice";
-            this.unitPrice.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 83.17947F;
-            this.Column1.HeaderText = "Quantity";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Unit
-            // 
-            this.Unit.FillWeight = 76.14214F;
-            this.Unit.HeaderText = "Unit";
-            this.Unit.MinimumWidth = 10;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // ttl
-            // 
-            this.ttl.FillWeight = 83.17947F;
-            this.ttl.HeaderText = "Total";
-            this.ttl.Name = "ttl";
-            this.ttl.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 83.17947F;
-            this.Column3.HeaderText = "Remove";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.Text = "Remove";
-            this.Column3.UseColumnTextForButtonValue = true;
             // 
             // frmPOS1
             // 

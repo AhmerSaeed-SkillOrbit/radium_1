@@ -323,7 +323,7 @@
             this.lbluser.ForeColor = System.Drawing.Color.White;
             this.lbluser.Location = new System.Drawing.Point(2, 5);
             this.lbluser.Name = "lbluser";
-            this.lbluser.Size = new System.Drawing.Size(238, 23);
+            this.lbluser.Size = new System.Drawing.Size(124, 23);
             this.lbluser.TabIndex = 8;
             this.lbluser.Text = "Login user : ADMIN";
             this.lbluser.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

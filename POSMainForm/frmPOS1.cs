@@ -116,6 +116,7 @@ namespace POSMainForm
 
 
         }
+
         void GetItemFilter()
         {
             txtProductName.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -740,6 +741,11 @@ namespace POSMainForm
         }
 
         private void labelProductUnit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel5_Paint(object sender, PaintEventArgs e)
         {
 
         }

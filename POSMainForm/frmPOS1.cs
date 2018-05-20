@@ -167,7 +167,6 @@ namespace POSMainForm
                     itemUnit = dt.Rows[0][5].ToString();
                     itemUnitId = Int32.Parse(dt.Rows[0][6].ToString());
 
-
                     if (int.Parse(dt.Rows[0][3].ToString()) != 0)
                     {
                         globalStockOnHand = int.Parse(dt.Rows[0][3].ToString());

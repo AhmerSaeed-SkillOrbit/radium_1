@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddEditProduct));
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbProductUnit = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.txtCostPrice = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +49,8 @@
             this.Label5 = new System.Windows.Forms.Label();
             this.txtBarcode = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtProductCode = new System.Windows.Forms.TextBox();
             this.Label3 = new System.Windows.Forms.Label();
             this.Label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -55,10 +59,6 @@
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtProductCode = new System.Windows.Forms.TextBox();
-            this.cbProductUnit = new System.Windows.Forms.ComboBox();
             this.GroupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -97,6 +97,26 @@
             this.GroupBox1.TabIndex = 1;
             this.GroupBox1.TabStop = false;
             this.GroupBox1.Text = "Product Information";
+            // 
+            // cbProductUnit
+            // 
+            this.cbProductUnit.FormattingEnabled = true;
+            this.cbProductUnit.Items.AddRange(new object[] {
+            "Select Product"});
+            this.cbProductUnit.Location = new System.Drawing.Point(452, 75);
+            this.cbProductUnit.Name = "cbProductUnit";
+            this.cbProductUnit.Size = new System.Drawing.Size(165, 21);
+            this.cbProductUnit.TabIndex = 13;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(338, 78);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(85, 13);
+            this.label10.TabIndex = 12;
+            this.label10.Text = "Product Unit :";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // button2
             // 
@@ -224,7 +244,7 @@
             // txtCategory
             // 
             this.txtCategory.BackColor = System.Drawing.Color.White;
-            this.txtCategory.Location = new System.Drawing.Point(130, 134);
+            this.txtCategory.Location = new System.Drawing.Point(130, 135);
             this.txtCategory.Name = "txtCategory";
             this.txtCategory.Size = new System.Drawing.Size(165, 21);
             this.txtCategory.TabIndex = 3;
@@ -254,6 +274,24 @@
             this.Label4.Size = new System.Drawing.Size(63, 13);
             this.Label4.TabIndex = 4;
             this.Label4.Text = "Barcode :";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(16, 76);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(87, 13);
+            this.label11.TabIndex = 4;
+            this.label11.Text = "Product Title :";
+            // 
+            // txtProductCode
+            // 
+            this.txtProductCode.BackColor = System.Drawing.Color.White;
+            this.txtProductCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtProductCode.Location = new System.Drawing.Point(130, 76);
+            this.txtProductCode.Name = "txtProductCode";
+            this.txtProductCode.Size = new System.Drawing.Size(165, 21);
+            this.txtProductCode.TabIndex = 0;
             // 
             // Label3
             // 
@@ -348,44 +386,6 @@
             this.button1.Text = "&Save";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(338, 78);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 13);
-            this.label10.TabIndex = 12;
-            this.label10.Text = "Product Unit :";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(16, 76);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(87, 13);
-            this.label11.TabIndex = 4;
-            this.label11.Text = "Product Title :";
-            // 
-            // txtProductCode
-            // 
-            this.txtProductCode.BackColor = System.Drawing.Color.White;
-            this.txtProductCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtProductCode.Location = new System.Drawing.Point(130, 76);
-            this.txtProductCode.Name = "txtProductCode";
-            this.txtProductCode.Size = new System.Drawing.Size(165, 21);
-            this.txtProductCode.TabIndex = 0;
-            // 
-            // cbProductUnit
-            // 
-            this.cbProductUnit.FormattingEnabled = true;
-            this.cbProductUnit.Items.AddRange(new object[] {
-            "Select Product"});
-            this.cbProductUnit.Location = new System.Drawing.Point(452, 75);
-            this.cbProductUnit.Name = "cbProductUnit";
-            this.cbProductUnit.Size = new System.Drawing.Size(165, 21);
-            this.cbProductUnit.TabIndex = 13;
             // 
             // frmAddEditProduct
             // 

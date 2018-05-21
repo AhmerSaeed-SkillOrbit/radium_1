@@ -58,7 +58,7 @@ namespace POSMainForm
         {
             try
             {
-                SQLConn.sqL = "INSERT INTO StockIn(ProductNo, Quantity, DateIn, ProductUnitId) Values('" + productID + "', '" + txtQuantity.Text + "', '" + System.DateTime.Now.ToString("MM/dd/yyyy") + "','" + cbProductUnit.SelectedIndex + "')";
+                SQLConn.sqL = "INSERT INTO StockIn(ProductNo, Quantity, DateIn, ProductUnitId) Values('" + productID + "', '" + txtQuantity.Text + "', '" + System.DateTime.Now.ToString("MM/dd/yyyy") + "','" + cbProductUnit.SelectedValue + "')";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.cmd.ExecuteNonQuery();

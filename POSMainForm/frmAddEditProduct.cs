@@ -96,11 +96,15 @@ namespace POSMainForm
             Console.WriteLine("Combo Box Value");
 
             Console.WriteLine(cbProductUnit.SelectedItem.ToString());
-            Console.WriteLine(cbProductUnit.SelectedIndex);
+            Console.WriteLine(cbProductUnit.SelectedValue.ToString());
+            Console.WriteLine(cbProductUnit.SelectedValue);
+
+            Console.WriteLine("Category Value and Text");
+            Console.WriteLine(categoryID);
 
             try
             {
-                SQLConn.sqL = "INSERT INTO Product(ProductCode, Description, Barcode, UnitPrice,costPrice, StocksOnHand, ReorderLevel, CategoryNo, ProductUnitId) VALUES('" + txtProductCode.Text + "', '" + txtDescription.Text + "', '" + txtBarcode.Text.Trim() + "', '" + txtSalePrice.Text.Replace(",", "") + "','" + txtCostPrice.Text.Replace(",", "") + "', '" + txtStocksOnHand.Text.Replace(",", "") + "', '" + txtReorderLevel.Text + "', '" + categoryID + "','" + cbProductUnit.SelectedIndex + "')";
+                SQLConn.sqL = "INSERT INTO Product(ProductCode, Description, Barcode, UnitPrice,costPrice, StocksOnHand, ReorderLevel, CategoryNo, ProductUnitId) VALUES('" + txtProductCode.Text + "', '" + txtDescription.Text + "', '" + txtBarcode.Text.Trim() + "', '" + txtSalePrice.Text.Replace(",", "") + "','" + txtCostPrice.Text.Replace(",", "") + "', '" + txtStocksOnHand.Text.Replace(",", "") + "', '" + txtReorderLevel.Text + "', '" + categoryID + "','" + cbProductUnit.SelectedValue + "')";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.cmd.ExecuteNonQuery();
@@ -143,9 +147,13 @@ namespace POSMainForm
             try
             {
                 Console.WriteLine("Product Unit Selected Text");
-                Console.WriteLine(cbProductUnit.SelectedIndex);
+                Console.WriteLine(cbProductUnit.SelectedItem);
 
-                SQLConn.sqL = "UPDATE Product SET ProductCode = '" + txtProductCode.Text + "', Description = '" + txtDescription.Text + "', Barcode = '" + txtBarcode.Text.Trim() + "', costPrice = '" + txtCostPrice.Text.Replace(",", "") + "',UnitPrice = '" + txtSalePrice.Text.Replace(",", "") + "', StocksOnHand = '" + txtStocksOnHand.Text.Replace(",", "") + "', ReorderLevel = '" + txtReorderLevel.Text + "', CategoryNo ='" + categoryID + "', ProductUnitId = '" + cbProductUnit.SelectedIndex + "' WHERE ProductNo = '" + productID + "'";
+
+                Console.WriteLine("Category Value and Text");
+                Console.WriteLine(categoryID);
+
+                SQLConn.sqL = "UPDATE Product SET ProductCode = '" + txtProductCode.Text + "', Description = '" + txtDescription.Text + "', Barcode = '" + txtBarcode.Text.Trim() + "', costPrice = '" + txtCostPrice.Text.Replace(",", "") + "',UnitPrice = '" + txtSalePrice.Text.Replace(",", "") + "', StocksOnHand = '" + txtStocksOnHand.Text.Replace(",", "") + "', ReorderLevel = '" + txtReorderLevel.Text + "', CategoryNo ='" + categoryID + "', ProductUnitId = '" + cbProductUnit.SelectedValue + "' WHERE ProductNo = '" + productID + "'";
                 SQLConn.ConnDB();
                 SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
                 SQLConn.cmd.ExecuteNonQuery();

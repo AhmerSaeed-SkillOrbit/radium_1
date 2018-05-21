@@ -142,8 +142,8 @@ E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.e
 E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.application
 E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.exe
 E:\projects\SindhSweets Software\POSMain\POSMainForm\obj\x86\Debug\POSMainForm.pdb
-E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.csproj.CoreCompileInputs.cache
-E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.exe
+E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.exe
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.application
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -151,7 +151,6 @@ E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\SqlServerTypes\x86\SqlServerSpati
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.exe.config
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.exe.manifest
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.application
-E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.exe
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\POSMainForm.pdb
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\Microsoft.SqlServer.Types.dll
 E:\GitHub-Clone\radium_1\POSMainForm\bin\Debug\MySql.Data.dll
@@ -206,6 +205,7 @@ E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.RptDailyInv.resou
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.RptSaleInv.resources
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.TestWinForm.resources
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.csproj.GenerateResource.Cache
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.csproj.CoreCompileInputs.cache
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.exe.manifest
-E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.application
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.exe
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.pdb

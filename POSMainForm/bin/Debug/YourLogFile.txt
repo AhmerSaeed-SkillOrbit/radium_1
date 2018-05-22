@@ -41,3 +41,12 @@ Object name: 'System.Net.Sockets.NetworkStream'.
    at MySql.Data.MySqlClient.MySqlStream.SendPacket(MySqlPacket packet)
    at MySql.Data.MySqlClient.NativeDriver.ExecutePacket(MySqlPacket packetToExecute)
    at MySql.Data.MySqlClient.NativeDriver.Close(Boolean isOpen)
+POSMainForm.exe Error: 0 : Unable to connect to any of the specified MySQL hosts.
+POSMainForm.exe Error: 0 : Unable to connect to any of the specified MySQL hosts.
+POSMainForm.exe Error: 0 : System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.NetworkStream'.
+   at System.Net.Sockets.NetworkStream.Write(Byte[] buffer, Int32 offset, Int32 size)
+   at MySql.Data.MySqlClient.TimedStream.Write(Byte[] buffer, Int32 offset, Int32 count)
+   at MySql.Data.MySqlClient.MySqlStream.SendPacket(MySqlPacket packet)
+   at MySql.Data.MySqlClient.NativeDriver.ExecutePacket(MySqlPacket packetToExecute)
+   at MySql.Data.MySqlClient.NativeDriver.Close(Boolean isOpen)

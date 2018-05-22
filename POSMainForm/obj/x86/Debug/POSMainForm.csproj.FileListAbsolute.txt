@@ -209,3 +209,4 @@ E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.csproj.CoreCompil
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.exe.manifest
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.exe
 E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.pdb
+E:\GitHub-Clone\radium_1\POSMainForm\obj\x86\Debug\POSMainForm.SaleReturn.resources

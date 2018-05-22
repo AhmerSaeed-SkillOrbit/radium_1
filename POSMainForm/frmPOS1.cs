@@ -22,6 +22,7 @@ namespace POSMainForm
         public decimal total { get; set; }
         public decimal quantity { get; set; }
         public double globalStockOnHand = 0;
+        public bool isSaleReturnBtn = false;
 
         public static string userID { get; set; }
 
@@ -627,23 +628,29 @@ namespace POSMainForm
 
         private void frmPOS1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Are you sure you want to exit?", "Exit System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == System.Windows.Forms.DialogResult.Yes)
+            if (!isSaleReturnBtn)
             {
-                if (txtPosition.Text == "Admin")
+                DialogResult dr = MessageBox.Show("Are you sure you want to exit?", "Exit System", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == System.Windows.Forms.DialogResult.Yes)
                 {
-                    this.Close();
+                    if (txtPosition.Text == "Admin")
+                    {
+                        this.Close();
 
-                    frmMain frm = new frmMain(txtName.Text, _id);
-                    frm.Show();
+                        frmMain frm = new frmMain(txtName.Text, _id);
+                        frm.Show();
+                    }
+                    else
+                    {
+                        Application.Exit();
+
+                    }
+
                 }
-                else
-                {
-                    Application.Exit();
-
-                }
-
             }
+            else {
+                Console.WriteLine("Moving to Sale Return Form");
+            }            
         }
 
         private void dataGridView1_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -719,34 +726,12 @@ namespace POSMainForm
 
         }
 
-        private void txtPosition_TextChanged(object sender, EventArgs e)
+        private void FormSaleReturn_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void label16_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void txtQty_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelProductUnit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
+            isSaleReturnBtn = true;
+            this.Close();
+            SaleReturn sr = new SaleReturn(_id);
+            sr.Show();
         }
 
         private void frmPOS1_Activated(object sender, EventArgs e)

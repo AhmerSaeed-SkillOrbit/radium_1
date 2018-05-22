@@ -339,6 +339,12 @@
     <Compile Include="RptSaleInv.Designer.cs">
       <DependentUpon>RptSaleInv.cs</DependentUpon>
     </Compile>
+    <Compile Include="SaleReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleReturn.Designer.cs">
+      <DependentUpon>SaleReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="SQLConn.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="TestWinForm.cs">
@@ -453,6 +459,9 @@
     <EmbeddedResource Include="rptSaleInvc.rdlc" />
     <EmbeddedResource Include="rptStocksIn.rdlc" />
     <EmbeddedResource Include="rptStocksOut.rdlc" />
+    <EmbeddedResource Include="SaleReturn.resx">
+      <DependentUpon>SaleReturn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TestWinForm.resx">
       <DependentUpon>TestWinForm.cs</DependentUpon>
     </EmbeddedResource>

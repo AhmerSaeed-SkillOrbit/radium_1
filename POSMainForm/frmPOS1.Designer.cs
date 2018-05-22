@@ -42,6 +42,7 @@
             this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.FormSaleReturn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
@@ -229,6 +230,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
+            this.panel1.Controls.Add(this.FormSaleReturn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.dtpDate);
             this.panel1.Controls.Add(this.button2);
@@ -243,7 +245,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1015, 80);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // FormSaleReturn
+            // 
+            this.FormSaleReturn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.FormSaleReturn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FormSaleReturn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.FormSaleReturn.ForeColor = System.Drawing.Color.White;
+            this.FormSaleReturn.Location = new System.Drawing.Point(794, 13);
+            this.FormSaleReturn.Name = "FormSaleReturn";
+            this.FormSaleReturn.Size = new System.Drawing.Size(129, 59);
+            this.FormSaleReturn.TabIndex = 15;
+            this.FormSaleReturn.Text = "SALE RETURN";
+            this.FormSaleReturn.UseVisualStyleBackColor = false;
+            this.FormSaleReturn.Click += new System.EventHandler(this.FormSaleReturn_Click);
             // 
             // label2
             // 
@@ -597,7 +612,6 @@
             this.txtPosition.Size = new System.Drawing.Size(124, 23);
             this.txtPosition.TabIndex = 3;
             this.txtPosition.TabStop = false;
-            this.txtPosition.TextChanged += new System.EventHandler(this.txtPosition_TextChanged);
             // 
             // label7
             // 
@@ -625,7 +639,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(759, 68);
             this.panel5.TabIndex = 3;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // labelProductUnit
             // 
@@ -636,7 +649,6 @@
             this.labelProductUnit.Size = new System.Drawing.Size(33, 15);
             this.labelProductUnit.TabIndex = 18;
             this.labelProductUnit.Text = "Unit";
-            this.labelProductUnit.Click += new System.EventHandler(this.labelProductUnit_Click);
             // 
             // button4
             // 
@@ -678,7 +690,6 @@
             this.txtQty.Name = "txtQty";
             this.txtQty.Size = new System.Drawing.Size(48, 23);
             this.txtQty.TabIndex = 4;
-            this.txtQty.TextChanged += new System.EventHandler(this.txtQty_TextChanged);
             this.txtQty.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtQty_KeyDown);
             // 
             // label6
@@ -838,5 +849,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn ttl;
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
+        private System.Windows.Forms.Button FormSaleReturn;
     }
 }

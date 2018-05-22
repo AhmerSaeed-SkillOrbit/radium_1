@@ -311,14 +311,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POSMainForm.exe" size="904136">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POSMainForm.exe" size="912328">
       <assemblyIdentity name="POSMainForm" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>OCJ+NTqqCvQTCURqOEY3uEJ/C/cS4fShREn+UpdplRo=</dsig:DigestValue>
+        <dsig:DigestValue>V7l5hOEhuoMuwnq6zj5Nx8AuyQPNcxM/vKdB2qUKukY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -334,13 +334,13 @@
       </hash>
     </dependentAssembly>
   </dependency>
-  <file name="POSMainForm.exe.config" size="1390">
+  <file name="POSMainForm.exe.config" size="1296">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-      <dsig:DigestValue>fhnKWJKPPvoscDSU9jGPzN3P4QVVfUf8rEHSy1KRlzo=</dsig:DigestValue>
+      <dsig:DigestValue>bOSD8BAcIj9ODXTkb0F+zTSDBqoJkZC0YrWjckuzoTU=</dsig:DigestValue>
     </hash>
   </file>
   <file name="SqlServerTypes\readme.htm" size="2369">

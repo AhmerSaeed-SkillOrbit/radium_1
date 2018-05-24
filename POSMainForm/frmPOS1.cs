@@ -149,7 +149,7 @@ namespace POSMainForm
             }
         }
 
-
+        //fetch data
         string currentItemName;
         private void txtProductName_KeyDown(object sender, KeyEventArgs e)
         {

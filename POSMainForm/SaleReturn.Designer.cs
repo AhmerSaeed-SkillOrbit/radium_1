@@ -32,13 +32,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.FormPos = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dtpDate = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button4 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.txtTransactionId = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -47,6 +48,13 @@
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ttl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtReturn = new System.Windows.Forms.TextBox();
             this.txtReceive = new System.Windows.Forms.TextBox();
@@ -61,14 +69,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnSale = new System.Windows.Forms.Button();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ttl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.FormPos = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -89,6 +89,21 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1015, 80);
             this.panel1.TabIndex = 1;
+            //this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // FormPos
+            // 
+            this.FormPos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.FormPos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FormPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            this.FormPos.ForeColor = System.Drawing.Color.White;
+            this.FormPos.Location = new System.Drawing.Point(789, 13);
+            this.FormPos.Name = "FormPos";
+            this.FormPos.Size = new System.Drawing.Size(129, 59);
+            this.FormPos.TabIndex = 16;
+            this.FormPos.Text = "POS";
+            this.FormPos.UseVisualStyleBackColor = false;
+            this.FormPos.Click += new System.EventHandler(this.FormPos_Click);
             // 
             // label2
             // 
@@ -128,7 +143,7 @@
             this.panel5.BackColor = System.Drawing.Color.LightGray;
             this.panel5.Controls.Add(this.button4);
             this.panel5.Controls.Add(this.button1);
-            this.panel5.Controls.Add(this.txtProductName);
+            this.panel5.Controls.Add(this.txtTransactionId);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Location = new System.Drawing.Point(0, 77);
             this.panel5.Name = "panel5";
@@ -166,13 +181,13 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtProductName
+            // txtTransactionId
             // 
-            this.txtProductName.Font = new System.Drawing.Font("Trebuchet MS", 14F, System.Drawing.FontStyle.Bold);
-            this.txtProductName.Location = new System.Drawing.Point(17, 29);
-            this.txtProductName.Name = "txtProductName";
-            this.txtProductName.Size = new System.Drawing.Size(465, 29);
-            this.txtProductName.TabIndex = 2;
+            this.txtTransactionId.Font = new System.Drawing.Font("Trebuchet MS", 14F, System.Drawing.FontStyle.Bold);
+            this.txtTransactionId.Location = new System.Drawing.Point(17, 29);
+            this.txtTransactionId.Name = "txtTransactionId";
+            this.txtTransactionId.Size = new System.Drawing.Size(465, 29);
+            this.txtTransactionId.TabIndex = 2;
             // 
             // label4
             // 
@@ -303,6 +318,62 @@
             this.dataGridView1.Size = new System.Drawing.Size(771, 439);
             this.dataGridView1.TabIndex = 20;
             // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "ID";
+            this.Column4.MinimumWidth = 25;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Visible = false;
+            // 
+            // itemDesc
+            // 
+            this.itemDesc.FillWeight = 191.1401F;
+            this.itemDesc.HeaderText = "Item Description";
+            this.itemDesc.MaxInputLength = 3276;
+            this.itemDesc.Name = "itemDesc";
+            this.itemDesc.ReadOnly = true;
+            // 
+            // unitPrice
+            // 
+            this.unitPrice.FillWeight = 83.17947F;
+            this.unitPrice.HeaderText = "Unit Price";
+            this.unitPrice.Name = "unitPrice";
+            this.unitPrice.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 83.17947F;
+            this.Column1.HeaderText = "Quantity";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.FillWeight = 76.14214F;
+            this.Unit.HeaderText = "Unit";
+            this.Unit.MinimumWidth = 10;
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ttl
+            // 
+            this.ttl.FillWeight = 83.17947F;
+            this.ttl.HeaderText = "Total";
+            this.ttl.Name = "ttl";
+            this.ttl.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 83.17947F;
+            this.Column3.HeaderText = "Return";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.Text = "Return";
+            this.Column3.UseColumnTextForButtonValue = true;
+            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.LightGray;
@@ -371,6 +442,7 @@
             this.paidamount.Font = new System.Drawing.Font("Trebuchet MS", 20F, System.Drawing.FontStyle.Bold);
             this.paidamount.Location = new System.Drawing.Point(17, 164);
             this.paidamount.Name = "paidamount";
+            this.paidamount.ReadOnly = true;
             this.paidamount.Size = new System.Drawing.Size(195, 38);
             this.paidamount.TabIndex = 12;
             this.paidamount.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -463,76 +535,6 @@
             this.btnSale.UseVisualStyleBackColor = false;
             this.btnSale.Click += new System.EventHandler(this.btnSale_Click);
             // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "ID";
-            this.Column4.MinimumWidth = 25;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Visible = false;
-            // 
-            // itemDesc
-            // 
-            this.itemDesc.FillWeight = 191.1401F;
-            this.itemDesc.HeaderText = "Item Description";
-            this.itemDesc.MaxInputLength = 3276;
-            this.itemDesc.Name = "itemDesc";
-            this.itemDesc.ReadOnly = true;
-            // 
-            // unitPrice
-            // 
-            this.unitPrice.FillWeight = 83.17947F;
-            this.unitPrice.HeaderText = "Unit Price";
-            this.unitPrice.Name = "unitPrice";
-            this.unitPrice.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 83.17947F;
-            this.Column1.HeaderText = "Quantity";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Unit
-            // 
-            this.Unit.FillWeight = 76.14214F;
-            this.Unit.HeaderText = "Unit";
-            this.Unit.MinimumWidth = 10;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // ttl
-            // 
-            this.ttl.FillWeight = 83.17947F;
-            this.ttl.HeaderText = "Total";
-            this.ttl.Name = "ttl";
-            this.ttl.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 83.17947F;
-            this.Column3.HeaderText = "Return";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.Text = "Return";
-            this.Column3.UseColumnTextForButtonValue = true;
-            // 
-            // FormPos
-            // 
-            this.FormPos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.FormPos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FormPos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            this.FormPos.ForeColor = System.Drawing.Color.White;
-            this.FormPos.Location = new System.Drawing.Point(789, 13);
-            this.FormPos.Name = "FormPos";
-            this.FormPos.Size = new System.Drawing.Size(129, 59);
-            this.FormPos.TabIndex = 16;
-            this.FormPos.Text = "POS";
-            this.FormPos.UseVisualStyleBackColor = false;
-            this.FormPos.Click += new System.EventHandler(this.FormPos_Click);
-            // 
             // SaleReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -570,7 +572,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.TextBox txtTransactionId;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.TextBox txtName;

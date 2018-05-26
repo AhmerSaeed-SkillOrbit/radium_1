@@ -311,14 +311,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POSMainForm.exe" size="915912">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="POSMainForm.exe" size="917448">
       <assemblyIdentity name="POSMainForm" version="1.0.0.0" language="neutral" processorArchitecture="x86" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>qWPnirMQrf0ErBN2yfvPmvnybyhtK8G8zwfVrkqO+Qw=</dsig:DigestValue>
+        <dsig:DigestValue>lGge2P+BlPEgASolhnm82Z3aJlDxvlPqWCatYW9g75w=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

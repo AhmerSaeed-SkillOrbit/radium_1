@@ -38,14 +38,14 @@ namespace POSMainForm
             try
             {
                 //GetCatFilter();
-                SQLConn.sqL = "SELECT `StaffID`, `Firstname`, `Username`, `Role` FROM `staff` where StaffID=" + _id + " ";
+                SQLConn.sqL = "SELECT `StaffID`, `Firstname`, `Username`, `Role` FROM `staff` where StaffID =" + _id + " ";
                 dt = d.GetData(SQLConn.sqL);
                 txtPosition.Text = dt.Rows[0][3].ToString();
                 txtName.Text = dt.Rows[0][2].ToString();
             }
             catch (Exception)
             {
-
+                throw;
             }
 
         }
@@ -96,7 +96,7 @@ namespace POSMainForm
                 txtDisc.Text = dt.Rows[0]["TotalDiscount"].ToString();
                 txtReceive.Text = dt.Rows[0]["TotalPaidAmount"].ToString();
                 paidamount.Text = totalAmountPaid.ToString();
-                txtReturn.Text = (totalPaymentDue - totalAmountPaid).ToString();
+                txtReturn.Text = (totalAmountPaid - totalPaymentDue).ToString();
 
                 foreach (DataRow row in dt.Rows)
                 {
@@ -170,15 +170,115 @@ namespace POSMainForm
 
         private void btnSaleReturnAll_Click(object sender, EventArgs e)
         {
-            if (CustomUpdateQuery("DELETE FROM transactiondetails WHERE InvoiceNo = '" + txtTransactionId.Text + "';"))
+            DialogResult dr = MessageBox.Show("Are you sure you want to Return this Sale ?", "Return Sale", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == System.Windows.Forms.DialogResult.Yes)
             {
-                CustomUpdateQuery("DELETE FROM transactions WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+                if (CustomUpdateQuery("DELETE FROM transactiondetails WHERE InvoiceNo = '" + txtTransactionId.Text + "';"))
+                {
+                    CustomUpdateQuery("DELETE FROM transactions WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
 
-                Interaction.MsgBox("Sale Return successfully completed");
+                    Interaction.MsgBox("Sale Return successfully completed");
+                }
+                else
+                {
+                    Interaction.MsgBox("Sorry !!! Failed to complete the Sale Return");
+                }
+
+                ClearSaleReturnForm();
             }
-            else {
-                Interaction.MsgBox("Sorry !!! Failed to complete the Sale Return");
+        }
+      
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to Return this Sale ?", "Return Sale", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (e.ColumnIndex == 6)
+                {
+                    //i-e Return button is clicked
+
+                    //returing indivdiual item 
+                    Console.WriteLine(dataGridView1.Rows[e.RowIndex].Cells);
+
+                    decimal totalAmount = 0;
+                    decimal cellItemPrice = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
+                    decimal cellQty = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
+                    decimal individualtemTotalAmount = cellQty * cellItemPrice;
+                    decimal calculatedAmount = 0;
+
+                    //first fetching the TotalAmount from transaction table 
+                    //so we can subtract this TotalAmount from individual itemTotalAmount
+                    DataTable dt = new DataTable();
+                    DB d = new DB();
+
+                    try
+                    {
+                        //Now updating the transaction
+                        SQLConn.sqL = "SELECT `InvoiceNo`, `TotalAmount`, `discount`, `paidAmount` FROM `transactions` WHERE InvoiceNo=" + txtTransactionId.Text + " ";
+                        dt = d.GetData(SQLConn.sqL);
+
+                        totalAmount = decimal.Parse(dt.Rows[0]["TotalAmount"].ToString());
+                        calculatedAmount = totalAmount - individualtemTotalAmount;
+
+                        CustomUpdateQuery("UPDATE transactions SET TotalAmount = '" + calculatedAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+
+                        Interaction.MsgBox("Sale Return successfully completed");
+
+                    }
+                    catch (Exception)
+                    {
+                        ClearSaleReturnForm();
+                        Interaction.MsgBox("Sorry !!! Failed to complete the Sale Return");
+                        throw;
+                    }
+
+                    ClearSaleReturnForm();
+                }
             }
+        }
+
+        private void txtReceive_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ClearSaleReturnForm()
+        {
+            dataGridView1.Rows.Clear();
+
+            txtTransactionId.Clear();
+            txtTotal.Clear();
+            txtDisc.Clear();
+            txtReceive.Clear();
+            paidamount.Clear();
+        }
+
+        private void SaleReturn_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Are you sure you want to exit and move to POS screen ?", "Exit Sale Return Screen", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == System.Windows.Forms.DialogResult.Yes)
+            {
+                if (txtPosition.Text == "Admin")
+                {
+                    this.Close();
+
+                    frmMain frm = new frmMain(txtName.Text, _id);
+                    frm.Show();
+                }
+                else
+                {
+                    this.Close();
+
+                    frmPOS1 frm = new frmPOS1(_id);
+                    frm.Show();
+                }
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            txtTransactionId.Clear();
+            dataGridView1.Rows.Clear();
         }
     }
 }

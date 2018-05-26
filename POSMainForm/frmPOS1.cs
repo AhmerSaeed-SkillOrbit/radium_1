@@ -275,12 +275,9 @@ namespace POSMainForm
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 4)
+            if (e.ColumnIndex == 6)
             {
 
-            }
-            else if (e.ColumnIndex == 5)
-            {
                 decimal subtract = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
                 strTotalAmt = Decimal.Parse(txtTotal.Text) - subtract;
                 grand_total -= subtract;

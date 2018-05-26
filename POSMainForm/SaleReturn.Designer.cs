@@ -163,6 +163,7 @@
             this.button4.TabIndex = 10;
             this.button4.Text = "Reset";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button1
             // 
@@ -300,7 +301,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.EnableHeadersVisualStyles = false;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 143);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 151);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -314,8 +315,9 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.RowTemplate.Height = 30;
-            this.dataGridView1.Size = new System.Drawing.Size(771, 439);
+            this.dataGridView1.Size = new System.Drawing.Size(764, 374);
             this.dataGridView1.TabIndex = 20;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // Column4
             // 
@@ -415,6 +417,7 @@
             this.txtReceive.TabStop = false;
             this.txtReceive.Text = "0";
             this.txtReceive.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtReceive.TextChanged += new System.EventHandler(this.txtReceive_TextChanged);
             // 
             // lbl
             // 
@@ -483,6 +486,7 @@
             this.txtDisc.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDisc.Location = new System.Drawing.Point(106, 75);
             this.txtDisc.Name = "txtDisc";
+            this.txtDisc.ReadOnly = true;
             this.txtDisc.Size = new System.Drawing.Size(117, 23);
             this.txtDisc.TabIndex = 11;
             this.txtDisc.Text = "0";
@@ -513,9 +517,9 @@
             // 
             this.panel8.BackColor = System.Drawing.Color.LightGray;
             this.panel8.Controls.Add(this.btnSaleReturnAll);
-            this.panel8.Location = new System.Drawing.Point(789, 481);
+            this.panel8.Location = new System.Drawing.Point(777, 481);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(211, 44);
+            this.panel8.Size = new System.Drawing.Size(233, 44);
             this.panel8.TabIndex = 20;
             // 
             // btnSaleReturnAll
@@ -548,6 +552,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SaleReturn";
             this.Text = "Sale Return";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SaleReturn_FormClosed);
+            this.Load += new System.EventHandler(this.SaleReturn_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -594,6 +600,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button btnSaleReturnAll;
+        private System.Windows.Forms.Button FormPos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemDesc;
         private System.Windows.Forms.DataGridViewTextBoxColumn unitPrice;
@@ -601,6 +608,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Unit;
         private System.Windows.Forms.DataGridViewTextBoxColumn ttl;
         private System.Windows.Forms.DataGridViewButtonColumn Column3;
-        private System.Windows.Forms.Button FormPos;
     }
 }

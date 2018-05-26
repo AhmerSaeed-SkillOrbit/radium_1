@@ -127,16 +127,58 @@ namespace POSMainForm
             //labelProductUnit.Text = itemUnit;
         }
 
-        private void btnSale_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void FormPos_Click(object sender, EventArgs e)
         {
             this.Close();
             frmPOS1 pos = new frmPOS1();
             pos.Show();
+        }
+
+        private bool CustomUpdateQuery(string query)
+        {
+            var affectedRows = 0;
+            try
+            {
+                SQLConn.sqL = query;
+                SQLConn.ConnDB();
+                SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
+
+                affectedRows = SQLConn.cmd.ExecuteNonQuery();
+
+                Console.WriteLine("affectedRows");
+                Console.WriteLine(affectedRows);
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.ToString());
+            }
+            finally
+            {
+                SQLConn.cmd.Dispose();
+                SQLConn.conn.Close();
+            }
+
+            if (affectedRows > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void btnSaleReturnAll_Click(object sender, EventArgs e)
+        {
+            if (CustomUpdateQuery("DELETE FROM transactiondetails WHERE InvoiceNo = '" + txtTransactionId.Text + "';"))
+            {
+                CustomUpdateQuery("DELETE FROM transactions WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+
+                Interaction.MsgBox("Sale Return successfully completed");
+            }
+            else {
+                Interaction.MsgBox("Sorry !!! Failed to complete the Sale Return");
+            }
         }
     }
 }

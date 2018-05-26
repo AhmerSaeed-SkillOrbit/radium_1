@@ -48,13 +48,6 @@
             this.txtPosition = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ttl = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel7 = new System.Windows.Forms.Panel();
             this.txtReturn = new System.Windows.Forms.TextBox();
             this.txtReceive = new System.Windows.Forms.TextBox();
@@ -69,6 +62,13 @@
             this.label11 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.btnSaleReturnAll = new System.Windows.Forms.Button();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemDesc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.unitPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ttl = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
@@ -319,62 +319,6 @@
             this.dataGridView1.TabIndex = 20;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "ID";
-            this.Column4.MinimumWidth = 25;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Visible = false;
-            // 
-            // itemDesc
-            // 
-            this.itemDesc.FillWeight = 191.1401F;
-            this.itemDesc.HeaderText = "Item Description";
-            this.itemDesc.MaxInputLength = 3276;
-            this.itemDesc.Name = "itemDesc";
-            this.itemDesc.ReadOnly = true;
-            // 
-            // unitPrice
-            // 
-            this.unitPrice.FillWeight = 83.17947F;
-            this.unitPrice.HeaderText = "Unit Price";
-            this.unitPrice.Name = "unitPrice";
-            this.unitPrice.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.FillWeight = 83.17947F;
-            this.Column1.HeaderText = "Quantity";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Unit
-            // 
-            this.Unit.FillWeight = 76.14214F;
-            this.Unit.HeaderText = "Unit";
-            this.Unit.MinimumWidth = 10;
-            this.Unit.Name = "Unit";
-            this.Unit.ReadOnly = true;
-            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // ttl
-            // 
-            this.ttl.FillWeight = 83.17947F;
-            this.ttl.HeaderText = "Total";
-            this.ttl.Name = "ttl";
-            this.ttl.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.FillWeight = 83.17947F;
-            this.Column3.HeaderText = "Return";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column3.Text = "Return";
-            this.Column3.UseColumnTextForButtonValue = true;
-            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.LightGray;
@@ -537,6 +481,61 @@
             this.btnSaleReturnAll.Text = "RETURN ALL";
             this.btnSaleReturnAll.UseVisualStyleBackColor = false;
             this.btnSaleReturnAll.Click += new System.EventHandler(this.btnSaleReturnAll_Click);
+            // 
+            // Column4
+            // 
+            this.Column4.HeaderText = "ID";
+            this.Column4.MinimumWidth = 25;
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // itemDesc
+            // 
+            this.itemDesc.FillWeight = 191.1401F;
+            this.itemDesc.HeaderText = "Item Description";
+            this.itemDesc.MaxInputLength = 3276;
+            this.itemDesc.Name = "itemDesc";
+            this.itemDesc.ReadOnly = true;
+            // 
+            // unitPrice
+            // 
+            this.unitPrice.FillWeight = 83.17947F;
+            this.unitPrice.HeaderText = "Unit Price";
+            this.unitPrice.Name = "unitPrice";
+            this.unitPrice.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 83.17947F;
+            this.Column1.HeaderText = "Quantity";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Unit
+            // 
+            this.Unit.FillWeight = 76.14214F;
+            this.Unit.HeaderText = "Unit";
+            this.Unit.MinimumWidth = 10;
+            this.Unit.Name = "Unit";
+            this.Unit.ReadOnly = true;
+            this.Unit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ttl
+            // 
+            this.ttl.FillWeight = 83.17947F;
+            this.ttl.HeaderText = "Total";
+            this.ttl.Name = "ttl";
+            this.ttl.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.FillWeight = 83.17947F;
+            this.Column3.HeaderText = "Return";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column3.Text = "Return";
+            this.Column3.UseColumnTextForButtonValue = true;
             // 
             // SaleReturn
             // 

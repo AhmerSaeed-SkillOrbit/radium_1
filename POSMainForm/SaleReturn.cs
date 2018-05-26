@@ -55,6 +55,7 @@ namespace POSMainForm
 
         }
 
+        //For populating the grid view using transaction id
         private void button1_Click(object sender, EventArgs e)
         {
             //public float ProductQty;
@@ -109,32 +110,59 @@ namespace POSMainForm
                     ProductUnitPrice = float.Parse(row["ProductUnitPrice"].ToString());
                     productTotalAmount = ProductQty * ProductUnitPrice;
 
-                    dataGridView1.Rows.Add(row["ProductNo"].ToString(), row["ProductName"].ToString(), ProductUnitPrice, ProductQty, row["ProductUnit"].ToString(), productTotalAmount);
+                    dataGridView1.Rows.Add(row["TransactionDetailNo"].ToString(), row["ProductName"].ToString(), ProductUnitPrice, ProductQty, row["ProductUnit"].ToString(), productTotalAmount);
                 }
-
-                //itemId = Int32.Parse(dt.Rows[0][0].ToString());
-                //currentItemName = dt.Rows[0][1].ToString();
-                //price = decimal.Parse(dt.Rows[0][2].ToString());
-                //itemUnit = dt.Rows[0][5].ToString();
-                //itemUnitId = Int32.Parse(dt.Rows[0][6].ToString());
-
             }
             else
             {
                 Console.WriteLine("Inovice No not Exist");
             }
-            //txtProductUnit.Text = price.ToString();
-            //labelProductUnit.Text = itemUnit;
         }
 
         private void FormPos_Click(object sender, EventArgs e)
         {
             this.Close();
-            frmPOS1 pos = new frmPOS1();
+            frmPOS1 pos = new frmPOS1(_id);
             pos.Show();
         }
 
-        private bool CustomUpdateQuery(string query)
+        //this is for update/delete single row
+        private bool CustomUpdateQueryForSingleRow(string query)
+        {
+            var affectedRows = 0;
+            try
+            {
+                SQLConn.sqL = query;
+                SQLConn.ConnDB();
+                SQLConn.cmd = new MySqlCommand(SQLConn.sqL, SQLConn.conn);
+
+                affectedRows = SQLConn.cmd.ExecuteNonQuery();
+
+                Console.WriteLine("affectedRows");
+                Console.WriteLine(affectedRows);
+            }
+            catch (Exception ex)
+            {
+                Interaction.MsgBox(ex.ToString());
+            }
+            finally
+            {
+                SQLConn.cmd.Dispose();
+                SQLConn.conn.Close();
+            }
+
+            if (affectedRows == 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        //this is for update/delete multiple row
+        private bool CustomUpdateQueryForMultipleRow(string query)
         {
             var affectedRows = 0;
             try
@@ -168,14 +196,15 @@ namespace POSMainForm
             }
         }
 
+        //Sale Return - complete transaction
         private void btnSaleReturnAll_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Are you sure you want to Return this Sale ?", "Return Sale", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == System.Windows.Forms.DialogResult.Yes)
             {
-                if (CustomUpdateQuery("DELETE FROM transactiondetails WHERE InvoiceNo = '" + txtTransactionId.Text + "';"))
+                if (CustomUpdateQueryForMultipleRow("DELETE FROM transactiondetails WHERE InvoiceNo = '" + txtTransactionId.Text + "';"))
                 {
-                    CustomUpdateQuery("DELETE FROM transactions WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+                    CustomUpdateQueryForSingleRow("DELETE FROM transactions WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
 
                     Interaction.MsgBox("Sale Return successfully completed");
                 }
@@ -187,7 +216,8 @@ namespace POSMainForm
                 ClearSaleReturnForm();
             }
         }
-      
+
+        //Sale Return - individual item transaction
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DialogResult dr = MessageBox.Show("Are you sure you want to Return this Sale ?", "Return Sale", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -205,6 +235,7 @@ namespace POSMainForm
                     decimal cellQty = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
                     decimal individualtemTotalAmount = cellQty * cellItemPrice;
                     decimal calculatedAmount = 0;
+                    int transactionDetailId = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
 
                     //first fetching the TotalAmount from transaction table 
                     //so we can subtract this TotalAmount from individual itemTotalAmount
@@ -218,12 +249,20 @@ namespace POSMainForm
                         dt = d.GetData(SQLConn.sqL);
 
                         totalAmount = decimal.Parse(dt.Rows[0]["TotalAmount"].ToString());
+
                         calculatedAmount = totalAmount - individualtemTotalAmount;
 
-                        CustomUpdateQuery("UPDATE transactions SET TotalAmount = '" + calculatedAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
-
-                        Interaction.MsgBox("Sale Return successfully completed");
-
+                        var updateQueryResult = CustomUpdateQueryForSingleRow("UPDATE transactions SET TotalAmount = '" + calculatedAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+                        if (updateQueryResult)
+                        {
+                            var deleteQueryResult = CustomUpdateQueryForSingleRow("DELETE FROM transactiondetails WHERE TDetailNo = '" + transactionDetailId + "';");
+                            Interaction.MsgBox("Sale Return successfully completed");
+                        }
+                        else
+                        {
+                            var revertUpdateQueryResult = CustomUpdateQueryForSingleRow("UPDATE transactions SET TotalAmount = '" + totalAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+                            Interaction.MsgBox("Failed to complete the Sale Return");
+                        }
                     }
                     catch (Exception)
                     {
@@ -251,6 +290,8 @@ namespace POSMainForm
             txtDisc.Clear();
             txtReceive.Clear();
             paidamount.Clear();
+            txtReturn.Clear();
+            
         }
 
         private void SaleReturn_FormClosed(object sender, FormClosedEventArgs e)
@@ -258,26 +299,17 @@ namespace POSMainForm
             DialogResult dr = MessageBox.Show("Are you sure you want to exit and move to POS screen ?", "Exit Sale Return Screen", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == System.Windows.Forms.DialogResult.Yes)
             {
-                if (txtPosition.Text == "Admin")
-                {
-                    this.Close();
+                this.Close();
 
-                    frmMain frm = new frmMain(txtName.Text, _id);
-                    frm.Show();
-                }
-                else
-                {
-                    this.Close();
-
-                    frmPOS1 frm = new frmPOS1(_id);
-                    frm.Show();
-                }
+                frmPOS1 frm = new frmPOS1(_id);
+                frm.Show();
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             txtTransactionId.Clear();
+            txtReturn.Clear();
             dataGridView1.Rows.Clear();
         }
     }

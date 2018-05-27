@@ -116,6 +116,9 @@ namespace POSMainForm
             else
             {
                 Console.WriteLine("Inovice No not Exist");
+                Interaction.MsgBox("Sorry !!! Transaction not exist");
+                txtTransactionId.Clear();
+
             }
         }
 
@@ -251,36 +254,55 @@ namespace POSMainForm
                     try
                     {
                         //Now updating the sale transaction
-                        SQLConn.sqL = "SELECT * FROM `transactiondetails` WHERE InvoiceNo=" + txtTransactionId.Text + " ";
+                        SQLConn.sqL = "SELECT * FROM `transactiondetails` WHERE InvoiceNo = " + txtTransactionId.Text + " ";
                         dt = d.GetData(SQLConn.sqL);
 
                         //check rows here and then update and delete accordingly
 
-                        totalAmount = decimal.Parse(dt.Rows[0]["TotalAmount"].ToString());
-
-                        calculatedAmount = totalAmount - individualtemTotalAmount;
-
-                        var updateQueryResult = CustomUpdateQueryForSingleRow("UPDATE transactions SET TotalAmount = TotalAmount - '" + individualtemTotalAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
-
-                        if (updateQueryResult)
+                        if (dt.Rows.Count > 1)
                         {
-                            var deleteQueryResult = CustomUpdateQueryForSingleRow("DELETE FROM transactiondetails WHERE TDetailNo = '" + transactionDetailId + "';");
+                            //means updating transaction table and deleting transaction detail table
 
-                            //updating the stock qty
-                            CustomUpdateQueryForSingleRow("UPDATE Product SET StocksOnhand = StocksOnHand + '" + cellQty + "' WHERE ProductNo = '" + productNo + "'");
+                            var updateQueryResult = CustomUpdateQueryForSingleRow("UPDATE transactions SET TotalAmount = TotalAmount - '" + individualtemTotalAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
 
+                            if (updateQueryResult)
+                            {
+                                //deleting the record from transaction detail table
+                                var deleteQueryResult = CustomUpdateQueryForSingleRow("DELETE FROM transactiondetails WHERE TDetailNo = '" + transactionDetailId + "';");
 
-                            Interaction.MsgBox("Sale Return successfully completed");
+                                //updating the stock qty
+                                CustomUpdateQueryForSingleRow("UPDATE Product SET StocksOnhand = StocksOnHand + '" + cellQty + "' WHERE ProductNo = '" + productNo + "'");
+
+                                Interaction.MsgBox("Sale Return successfully completed");
+                            }
+                            else
+                            {
+                                var revertUpdateQueryResult = CustomUpdateQueryForSingleRow("UPDATE transactions SET TotalAmount = '" + totalAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+
+                                Interaction.MsgBox("Failed to complete the Sale Return");
+                            }
                         }
                         else
                         {
-                            var revertUpdateQueryResult = CustomUpdateQueryForSingleRow("UPDATE transactions SET TotalAmount = '" + totalAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+                            //deleting the record from transaction detail table
+                            var deleteTransactionDetailQueryResult = CustomUpdateQueryForSingleRow("DELETE FROM transactiondetails WHERE TDetailNo = '" + transactionDetailId + "';");
 
+                            if (deleteTransactionDetailQueryResult)
+                            {
+                                var deleteQueryResult = CustomUpdateQueryForSingleRow("DELETE FROM transactions WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
 
-                            Interaction.MsgBox("Failed to complete the Sale Return");
+                                //updating the stock qty
+                                CustomUpdateQueryForSingleRow("UPDATE Product SET StocksOnhand = StocksOnHand + '" + cellQty + "' WHERE ProductNo = '" + productNo + "'");
+
+                                Interaction.MsgBox("Sale Return successfully completed");
+                            }
+                            else
+                            {
+                                return;
+                            }
                         }
 
-
+                        ClearSaleReturnForm();
                     }
                     catch (Exception)
                     {
@@ -288,8 +310,6 @@ namespace POSMainForm
                         Interaction.MsgBox("Sorry !!! Failed to complete the Sale Return");
                         throw;
                     }
-
-                    ClearSaleReturnForm();
                 }
             }
         }

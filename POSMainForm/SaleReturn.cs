@@ -110,7 +110,7 @@ namespace POSMainForm
                     ProductUnitPrice = float.Parse(row["ProductUnitPrice"].ToString());
                     productTotalAmount = ProductQty * ProductUnitPrice;
 
-                    dataGridView1.Rows.Add(row["TransactionDetailNo"].ToString(), row["ProductName"].ToString(), ProductUnitPrice, ProductQty, row["ProductUnit"].ToString(), productTotalAmount);
+                    dataGridView1.Rows.Add(row["TransactionDetailNo"].ToString(), row["ProductName"].ToString(), ProductUnitPrice, ProductQty, row["ProductUnit"].ToString(), productTotalAmount, null, row["ProductNo"].ToString());
                 }
             }
             else
@@ -206,6 +206,11 @@ namespace POSMainForm
                 {
                     CustomUpdateQueryForSingleRow("DELETE FROM transactions WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
 
+                    for (int i = 0; i < dataGridView1.Rows.Count; i++)
+                    {
+                        CustomUpdateQueryForSingleRow("UPDATE Product SET StocksOnhand = StocksOnHand + '" + Conversion.Val(dataGridView1.Rows[i].Cells[3].Value.ToString()) + "' WHERE ProductNo = '" + dataGridView1.Rows[i].Cells[7].Value.ToString() + "'");
+                    }
+
                     Interaction.MsgBox("Sale Return successfully completed");
                 }
                 else
@@ -234,8 +239,9 @@ namespace POSMainForm
                     decimal cellItemPrice = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
                     decimal cellQty = Decimal.Parse(dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
                     decimal individualtemTotalAmount = cellQty * cellItemPrice;
-                    decimal calculatedAmount = 0;
                     int transactionDetailId = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                    int productNo = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString());
+                    decimal calculatedAmount = 0;
 
                     //first fetching the TotalAmount from transaction table 
                     //so we can subtract this TotalAmount from individual itemTotalAmount
@@ -244,25 +250,37 @@ namespace POSMainForm
 
                     try
                     {
-                        //Now updating the transaction
-                        SQLConn.sqL = "SELECT `InvoiceNo`, `TotalAmount`, `discount`, `paidAmount` FROM `transactions` WHERE InvoiceNo=" + txtTransactionId.Text + " ";
+                        //Now updating the sale transaction
+                        SQLConn.sqL = "SELECT * FROM `transactiondetails` WHERE InvoiceNo=" + txtTransactionId.Text + " ";
                         dt = d.GetData(SQLConn.sqL);
+
+                        //check rows here and then update and delete accordingly
 
                         totalAmount = decimal.Parse(dt.Rows[0]["TotalAmount"].ToString());
 
                         calculatedAmount = totalAmount - individualtemTotalAmount;
 
-                        var updateQueryResult = CustomUpdateQueryForSingleRow("UPDATE transactions SET TotalAmount = '" + calculatedAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+                        var updateQueryResult = CustomUpdateQueryForSingleRow("UPDATE transactions SET TotalAmount = TotalAmount - '" + individualtemTotalAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+
                         if (updateQueryResult)
                         {
                             var deleteQueryResult = CustomUpdateQueryForSingleRow("DELETE FROM transactiondetails WHERE TDetailNo = '" + transactionDetailId + "';");
+
+                            //updating the stock qty
+                            CustomUpdateQueryForSingleRow("UPDATE Product SET StocksOnhand = StocksOnHand + '" + cellQty + "' WHERE ProductNo = '" + productNo + "'");
+
+
                             Interaction.MsgBox("Sale Return successfully completed");
                         }
                         else
                         {
                             var revertUpdateQueryResult = CustomUpdateQueryForSingleRow("UPDATE transactions SET TotalAmount = '" + totalAmount + "' WHERE InvoiceNo = '" + txtTransactionId.Text + "';");
+
+
                             Interaction.MsgBox("Failed to complete the Sale Return");
                         }
+
+
                     }
                     catch (Exception)
                     {
@@ -291,7 +309,7 @@ namespace POSMainForm
             txtReceive.Clear();
             paidamount.Clear();
             txtReturn.Clear();
-            
+
         }
 
         private void SaleReturn_FormClosed(object sender, FormClosedEventArgs e)
